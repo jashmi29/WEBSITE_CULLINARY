@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cakes - Hungry Chef</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #050404;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+     /* Hero background image */
+    .hero-bg {
+      background-image: url('https://media4.giphy.com/media/dvIvdqxGRIA6yJnhwm/giphy.webp?cid=ecf05e47dwywudmf721q8b56edxgflfeyqii5e4q3904zbfw&ep=v1_gifs_search&rid=giphy.webp&ct=g');
+      background-size: cover;
+      background-position: center;
+      height: 80vh; /* Adjust this value as needed */
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f7f4f4;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Body blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Flexbox for links */
+    .recipe-links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recipe-links a {
+      flex: 1;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#backtohome" class="text-gray-800 hover:text-gray-600">back to Home</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">  Pastries</h1>
+  </section>
+
+  <section id="breakfast-brunch" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-4xl font-bold text-gray-800 mb-12">Delicious cakes </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe 1 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/85/6f/5a/856f5a59dbf4e411989309b96b21f159.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="classic and authentic black forest cake">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Black Forest</h3>
+          <p class="text-gray-700 mb-4">Classic and authentic black forest cake.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Black forest</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+            6 Eggs
+            1 cup (200g) Sugar
+            1 teaspoon Vanilla extract
+            1 cup + 1 tbsp (140g) Flour 
+            2 teaspoons Baking powder
+            1/2 cup (50g) Cocoa powder
+            1/4 cup (60g) Butter, melted  
+            1/2 teaspoon Salt 
+            For the syrup:
+            1/2 cup (120ml) Water
+            1/2 cup (100g) Sugar
+            1/4 cup (60ml) Kirsch or cherry liquor (optional)  
+            For the cherry filling:
+            1 Jar (680g) Cherries 
+            Cherry juice from the jar/can
+            40g Cornstarch
+            1/4 cup (50g) Sugar
+            1/4 cup (60g) Kirsch or cherry liquor (optional)
+            For the cream filling:
+            2½ cups (600ml) Heavy cream, cold 
+            1/2 cup (65g) Powdered sugar
+            3-4 tablespoons Instant pudding (optional)  
+            For decoration:
+            1/2 cup (120ml) Heavy cream, cold 
+            2-3 tablespoons Instant pudding (optional)  
+            2 tablespoons Powdered sugar
+            Maraschino cherries/fresh cherries
+            Dark chocolate shavings 
+            
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/4g0WUw_dCvQ?si=yIhm-PdmZKg3B7Bg" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Black forest" data-description="
+            1. Make the cake: Preheat the oven to 350˚F (180C˚). Butter a 9-inch (23cm) cake pan and line the bottoms with a parchment paper, grease the sides. Lightly dust with cocoa powder. Set aside.
+2. In a bowl of a stand mixer witted with whisk attachment, or in a large bowl, whisk eggs, sugar and salt. Whisk for 6-7 minutes until doubled in volume. 
+3. In a separate bowl, mix flour, cocoa powder and baking powder. 
+4. Add flour mixture into wet mixture and gently fold until combined and smooth. Add melted butter, vanilla extract and mix until combined. Pour into prepared pan and bake for 30-35 minutes. 
+5. Let cool to room temperature.
+6. Meanwhile make the syrup: in a small saucepan heat water and sugar. Simmer for 2-3 minutes, turn the heat off and add the kirsch/liquor. Set aside.
+7. Meanwhile make the filling: drain the cherries and set aside. Place the cherry juice in a saucepan, add kirsch (optional), sugar, cornstarch and stir well. Bring the mixture to a boil, while whisking, then reduce to medium-low heat and whisk constantly until thickness. Remove from heat, add the cherries and stir. Set aside. 
+8. Make the cream filling: in a large bowl whisk heavy cream and powder sugar until stiff peaks form. Transfer to a piping bag and set aside.
+9. Assembly: cut the cake horizontally into 3 even layers. Place the bottom cake layer on a cake stand or plate and brush with the syrup lightly. Pipe whipped cream around the edges of the cake. Then spoon half of the cherry mixture in the middle of the cake. Cover cherry mixture with whipped cream and smooth the top. Place second layer of chocolate cake and repeat the process one more time. 
+10. Brush the top of the cake with syrup and cover the top and the sides of the cake with the remaining cream. Chill the cake in the fridge for at least 4 hours.
+11. Decoration: before serving the cake, whip 1/2 cup heavy cream with 2 tablespoons of powdered sugar and instant pudding (optional) until stiff peaks form, transfer to a piping bag. Pipe some whipped cream on top of the cake, place cherries on the whipped cream. Decorate the sides of the cake with chocolate shavings.
+            
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/b7/21/87/b7218786dc6c649e6c429192a9e9bd8b.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="The most amazing red velvet cake recipe with cream cheese frosting">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Red Velvet</h3>
+          <p class="text-gray-700 mb-4">The most amazing red velvet cake recipe with cream cheese frosting.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Red Velvet</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            For the cake:
+2½ cups (310g) all-purpose flour
+2 tablespoons (16g) Cocoa powder
+1 teaspoon Baking soda
+1 teaspoon Salt
+1½ cups (300g) Sugar
+1 cup (240ml) buttermilk, room temperature 
+1 cup  1 tbsp (200g) Vegetable oil
+1 teaspoon white Vinegar
+2 Eggs
+1/2 cup (115g) butter, room temperature 
+1-2 tablespoons Red food coloring
+2 teaspoons Vanilla extract
+For the frosting:
+1¼ cups (300ml) Heavy cream, cold 
+2 cups (450g) Cream cheese, room temperature 
+1½ cups (190g) Powdered sugar 
+1 teaspoon Vanilla extract 
+
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/vGE-RfP6KRE?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Red Velvet" data-description="
+            1. Preheat oven to 350F (175C).
+2. In a large bowl sift flour, cocoa powder, baking soda and salt. Stir and set aside.
+3. In a separate large bowl, beat butter and sugar until smooth. Add eggs one at the time, beating until combined after each addition. Add oil, vinegar, vanilla extract, buttermilk and beat until combined. Gradually add the dry ingredients and mix after each addition until well combined. Add food coloring and mix.
+4. Pour the batter into two 8-inch (20cm) round baking pans greased with butter and dust with flour. or you can use one pan and bake twice. Also you can use springrorm pan lined with parchment.
+5. Bake 35-40 minutes, until a toothpick inserted into the center comes out clean. 
+6. Cool the cakes in their pans on a wire rack for 10 minutes. Release from the pan, then let cool completely. 
+7. Make the frosting: in a large bowl, beat cream cheese with powdered sugar and vanilla extract. Beat until smooth and creamy. In a separate bowl with heavy cream to stiff peaks. Then fold into the cream cheese mixture.
+8. Cut the top of the cakes. Cut 8-12 heart shapes from the top layer of the cakes. Make crumbs from the leftovers. Set aside.
+9. Place one cake layer with flat side down. Spread a layer of frosting, place the second layer of cake on top of the frosting, flat side up. Spread evenly the frosting on top and sides of the cake.
+10. Decoration: Decorate the cake with the crumbs and the hearts.
+11. Refrigerate for at least 2-3 hours before serving.
+Notes:
+• All cake ingredients should be in room temperature
+• You can use all-purpose flour or cake flour
+• Instead of buttermilk you can use milk+1 tablespoon vinegar (mix and let stand 5-10 minutes).
+            ">Procedure:</a>
+          </div>
+        </div>
+        <!-- Recipe 3 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/6f/e1/c5/6fe1c5185ac0cb278416a3c6ad36fb3c.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Some recipes are trends and some everyone's favourite.">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Cheese cake</h3>
+          <p class="text-gray-700 mb-4">Some recipes are trends and some everyone's favourite.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Cheese cake</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            1 cup Cream cheese, 
+            1 cup Hung curd,   
+            1 cup Whipping cream,   
+            ½ cup Sugar, 
+            ¼ tsp Lemon zest, 
+            6 gms Agar agar, soaked in 4 tbsp water,
+            ⅓ cup Strawberry puree , 
+            
+            For Base :
+            1 ½ cup Biscuits, crumbs, 
+            ¼ cup Butter, 
+            
+            Other Ingredients :
+            Ohp sheets, 
+            Melted chocolate, 
+            Dragon fruit, slice,  
+            fresh Mint leaves, 
+            Cocoa powder, 
+            Icing sugar,   
+            Pomegranate pearls, .</div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/q4wUWqV8kjc?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Cheese cake" data-description="
+
+            In a large bowl, add cream cheese, hung curd, whipping cream and half the sugar. 
+            Using an electric  blender set at medium-high speed, beat the cream cheese in a large bowl until smooth. 
+            Add a little lemon zest and mix it well. 
+            In a bowl, add agar agar and little water and soaked in it for 5 minutes. 
+            In a large pan, add little water, soaked agar agar and mix it well. 
+            Add sugar and mix it well. Then add strawberry puree then switch off the flame and mix everything well.
+            Transfer this into a bowl, let it come to a room temperature. 
+            Once the strawberry puree mixture is at normal temperature pour it into a cream cheese mixture and mix it well. 
+            Pour the cream cheese mixture over the biscuit crust; smooth the top with a rubber spatula. and refrigerate until firm,1 to 1 ½ hours.
+            Take the cake out from the refrigerator and place on a cooling rack. 
+            Once set, Place the ohp sheet in the center. Pour the melted chocolate in the center over the cheesecake. 
+            Cover it from all the sides evenly. 
+            Garnished it with dragon fruit, fresh mint leaves, cocoa powder, icing sugar and pomegranate pearls. 
+            Cut it into a slice and serve. 
+            
+            For Base 
+            In a bowl, add biscuits and crush them with a rolling pin or hands. 
+            In a nonstick pan, add butter and let it melt completely. 
+            Add biscuits crumbs and mix well until all the crumbs are nicely coated.
+            Press the crumb mixture into a cake tin, spreading evenly all the side; press flat. Chill crust in freezer for at least 10 minutes..">Procedure</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="recipe-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content"></div>
+  </div>
+
+  <script>
+    // JavaScript code for modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('recipe-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      const modalClose = modal.querySelector('.modal-close');
+
+      document.querySelectorAll('.procedure-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const recipe = this.getAttribute('data-recipe');
+          const description = this.getAttribute('data-description');
+          modalContent.innerHTML = `<h2>${recipe}</h2><p>${description}</p>`;
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      themeToggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+</body>
+</html>

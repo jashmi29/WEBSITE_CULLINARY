@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beverages - Hungry Chef</title>
+  <link rel="stylesheet" href="styles2.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+    
+
+    /* Hero background image */
+    .hero-bg {
+      background-image: url('https://i.pinimg.com/564x/3c/cd/f1/3ccdf1d10719d43f7744e28f918a01f0.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding-bottom: 100%; /* Ensures the card is square */
+      position: relative;
+      overflow: hidden; /* Prevents image overflow */
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    .recipe-card img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the image covers the entire square card */
+      border-radius: 10px;
+    }
+
+    .recipe-links {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Blur effect for modal */
+    .modal-open {
+      filter: blur(5px);
+    }
+
+    /* Procedure content styles */
+    .procedure-content {
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
+      border-radius: 10px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#home" class="text-gray-800 hover:text-gray-600">Home</a></li>
+          <li><a href="index.html#about" class="text-gray-800 hover:text-gray-600">About</a></li>
+          <li><a href="index.html#services" class="text-gray-800 hover:text-gray-600">Services</a></li>
+          <li><a href="index.html#contact" class="text-gray-800 hover:text-gray-600">Contact</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">Beverages</h1>
+  </section>
+
+  <section id="recipes" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-4xl font-bold text-gray-800 mb-12">Explore Our Delicious Recipes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe Template 1 -->
+        <div class="recipe-card bg-white shadow-lg rounded-lg relative">
+          <img src="https://i.pinimg.com/564x/57/8f/7a/578f7af7debb9f2ec69d89e8971a3437.jpg" alt="MOCKTAILS">
+          <div class="recipe-links">
+            <a href="Mocktails.html" class="text-black-500 hover:text-black-700">MOCKTAILS</a>
+          </div>
+        </div>
+        <!-- Recipe Template 2 -->
+        <div class="recipe-card bg-white shadow-lg rounded-lg relative">
+          <img src="https://i.pinimg.com/474x/c6/97/61/c697617ff32bff7669f6f7bd17d26c07.jpg" alt="MILKSHAKES">
+          <div class="recipe-links">
+            <a href="Milkshakes.html" class="text-black-500 hover:text-black-700">MILKSHAKES</a>
+          </div>
+        </div>
+        <!-- Recipe Template 3 -->
+        <div class="recipe-card bg-white shadow-lg rounded-lg relative">
+          <img src="https://i.pinimg.com/474x/17/b2/1d/17b21db69a6fba40d42f97d4cbf1488e.jpg" alt="SMOOTHIES">
+          <div class="recipe-links">
+            <a href="Smoothies.html" class="text-black-500 hover:text-black-700">SMOOTHIES</a>
+          </div>
+        </div>
+        <!-- Recipe Template 4 -->
+        <div class="recipe-card bg-white shadow-lg rounded-lg relative">
+          <img src="https://i.pinimg.com/474x/2f/e5/25/2fe52540c5e1e770f663afe62829be60.jpg" alt="SOFT DRINKS">
+          <div class="recipe-links">
+            <a href="Juices.html" class="text-black-500 hover:text-black-700">FRESH JUICES</a>
+          </div>
+        </div>
+        <!-- Recipe Template 5 -->
+        <div class="recipe-card bg-white shadow-lg rounded-lg relative">
+          <img src="https://i.pinimg.com/474x/57/e1/14/57e114f83e455f1c6d565fa6c6839963.jpg " alt="COFFEE">
+          <div class="recipe-links">
+            <a href="Coffee.html" class="text-black-500 hover:text-black-700">COFFEE </a>
+          </div>    
+        </div>
+        <!-- Recipe Template 6 -->
+        <div class="recipe-card bg-white shadow-lg rounded-lg relative">
+          <img src="https://i.pinimg.com/736x/80/58/f9/8058f9b56e6fa5f44b04a9aec62b0064.jpg" alt="TEA">
+          <div class="recipe-links">
+            <a href="Tea.html" class="text-black-500 hover:text-black-700">TEA</a>
+          </div>    
+        </div>
+       
+        <!-- Recipe Template 6 -->
+        <div class="recipe-card bg-white shadow-lg rounded-lg relative">
+          <img src="https://i.pinimg.com/474x/74/db/14/74db143179c356eae7bf6d4df49133ca.jpg" alt="LEMONADES">
+          <div class="recipe-links">
+            <a href=" Lemonades.html" class="text-black-500 hover:text-black-700"> LEMONADES</a>
+      </div>
+    </div>
+    
+
+
+  </section>
+
+  <footer class="bg-gray-800 text-white py-6 mt-12">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Hungry Chef. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="modal-close" class="modal-close">&times;</span>
+      <div id="procedure-content" class="procedure-content"></div>
+    </div>
+  </div>
+
+  <script src="script2.js"></script>
+</body>
+</html>

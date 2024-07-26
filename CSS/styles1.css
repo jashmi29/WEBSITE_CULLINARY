@@ -1,0 +1,97 @@
+/* Add blur effect */
+.body-blur {
+  filter: blur(5px);
+}
+
+/* Smooth scrolling transition */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dropdown menu styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ffb6af;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+/* Hero background image */
+.hero-bg {
+  background-image: url('https://i.pinimg.com/564x/3c/cd/f1/3ccdf1d10719d43f7744e28f918a01f0.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Recipe card hover effect */
+.recipe-card {
+  transition: transform 0.3s;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05);
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+  z-index: 1000;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+  text-align: left;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #333;
+}
+
+/* Body blur effect */
+body.modal-open {
+  overflow: hidden;
+}
+
+.body-blur {
+  filter: blur(5px);
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>indian snacks - Hungry Chef</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #050404;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    /* Hero background image */
+    .hero-bg {
+      background-image: url('https://i.pinimg.com/564x/b1/2d/d2/b12dd2b448f19c28c66a4fdc8fc2fed3.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f7f4f4;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Body blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Flexbox for links */
+    .recipe-links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recipe-links a {
+      flex: 1;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#backtohome" class="text-gray-800 hover:text-gray-600">back to Home</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">Snack Recipes</h1>
+  </section>
+
+  <section id="breakfast-brunch" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-4xl font-bold text-gray-800 mb-12">Delicious Indian-Street-Snacks Options</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe 1 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/48/7f/6b/487f6b2679a185312aedc48937c150ae.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Our beloved Indian street food from Maharashtra featuring a spiced, deep-fried potato patty (vada) nestled inside a soft bread bun (pav)">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Vada pav  </h3>
+          <p class="text-gray-700 mb-4">Our beloved Indian street food from Maharashtra featuring a spiced, deep-fried potato patty (vada) nestled inside a soft bread bun (pav)</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Vada pav</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+            5-6 medium potatoes, boiled, peeled, and mashed
+6-8 pavs, horizontally slit,
+2 tbsps oil,
+1 tsp mustard seeds,
+1 tsp split skinless black gram (dhuli urad dal),
+¼ tsp asafoetida (hing),
+12-15 curry leaves,
+1½ tbsps coarsely crushed ginger-garlic-green chillies,
+½ tsp turmeric powder,
+Salt to taste,
+2-3 tbsps chopped fresh coriander leaves,
+½ lemon,
+Oil for deep frying,
+10-12 green chillies, slit,
+Green chutney as required,
+Date and tamarind chutney as required,
+Dry red chilli-garlic chutney as required,
+Batter,
+2 cups gram flour (besan), 
+½ tsp turmeric powder,
+½ tsp red chilli powder,
+Salt to taste,
+¼ tsp baking soda,
+Salt to taste,
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/-8hYpfETFG4?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Vada pav" data-description="
+            1. To make the stuffing, heat oil in a kadai. Add mustard seeds, split skinless black gram, and sauté till golden brown. Add asafoetida, curry leaves, and crushed ginger-garlic-green chilli and mix well. Cook for 1-2 minutes.
+            2. Add turmeric powder, and salt and mix well. Cook for 1-2 minutes.
+            3. Add the boiled potatoes, and mix till well combined. Cook for 1-2 minutes. 
+            4. Add coriander leaves, and squeeze juice of lemon and mix. Switch the heat off and allow the mixture to cool completely.
+            5. To make the batter, take gram flour, turmeric powder, red chilli powder, salt, and baking soda in a large bowl. Add 1½ cups water and mix with the help of your hand till a smooth batter is formed. 
+            6. Heat sufficient oil in another kadai. 
+            7. Divide the stuffing into equal portions and shape each portion into a ball. Slightly flatten it. Dip each portion into the batter and coat it well from all sides. Gently slide this in to the hot oil and deep fry till golden brown. Drain on an absorbent paper. This is a vada.
+            8. Drizzle some of the batter into the hot oil and deep fry till golden brown and crisp. Drain the fried batter into an absorbent paper.
+            9. Similarly, slide in the slit green chillies and deep fry for 1-2 minutes. Drain on an absorbent paper and generously sprinkle salt over it and toss well.
+            10. To make a vada pav, apply some green chutney, date and tamarind chutney, sprinkle dry red chilli-garlic chutney over one side of the slit pav. Place a vada on it, sprinkle some of the fried batter pieces, and place a fried chilli on top. Cover with the remaining side of the pav.
+            11. Arrange the vada pavs on a serving plate and serve hot. 
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/564x/bc/54/8a/bc548a4846d7671b9dc69e534ff2b5ef.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Savory Indian patties made with a delicious filling of sweet corn kernels">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Dahi Puri</h3>
+          <p class="text-gray-700 mb-4">Savory Indian patties made with a delicious filling of sweet corn kernels.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Crispy corn cutlet</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            Green chutney:
+            Hara dhaniya (coriander leaves) 1 cup (packed),
+             Pudina (fresh mint leaves) ½ cup (packed),
+             Adrak (ginger) 1 inch,
+             Teekhi hari mirchi (spicy green chillies) 2-3 nos. 
+             Jeera (cumin) powder 1 tsp,
+             Amchur (dry mango) powder 1 tsp,
+             Kala namak (black salt) ½ tsp,
+             Roasted Chana dal 1 tbsp,
+             Salt to taste,
+             Ice cubes 2-3 nos,
+             Water as required...
+
+             Sweet tamarind chutney:
+
+ Tamarind (imli) ½ cup
+ Seedless dates (khajoor) 150 gm
+ Jaggery 1 kg
+ Jeera powder 1 tbsp
+ Kashmiri red chilli powder 1 tbsp
+ Dry ginger powder ½ tsp
+ Black salt 1 tsp
+ Black pepper a pinch
+ Salt to taste
+ Water 750 ml
+
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/oWySeIEhRS8?si=StSJfh0Gd_Jm63kc" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Crispy corn cutlet" data-description="
+            Soak the imli and khajoor separately in hot water for 15-20 minutes, further squeeze the imli to remove the pulp.
+             Transfer the imli pulp and soaked khajoor in a mixer grinder and grind to a fine paste.
+             Now, take a wok and, strain the grinded imli & khajoor pulp through a sieve, further, add jaggery, and the remaining powdered spices along with salt & pepper. Switch on the flame & let the jaggery melt.
+             As and when you start to cook, a layer of scum will form, remove the scum with a spoon and cook the chutney for 30 minutes on medium flame, while stirring occasionally.
+             Cook until the chutney has reached a thin syrup like consistency. Switch off the flame and allow it to cool down, do not cook for too long as it will thicken a bit as it cools down.
+             Sweet tamarind chutney is ready, as this chutney takes time for cooking, you can make them in bulk and store them in a well sterilized & airtight jar and refrigerate them for couple of days. Use accordingly.
+            
+            Dahi Bhalla spice mix
+            Ingredients:
+             Jeera (cumin seeds) 5 tbsp
+             Sabut kaali mirch (black pepper) 2 tbsp
+             Teekhi lal mirchi (spicy red chillies) 4-5 nos.
+             Ajwain (carom seeds) 1 tbsp
+             Salt a large pinch
+             Kala namak (black salt) 1 tbsp
+             Chaat masala 1 tsp
+            Methods:
+             Set a pan on low heat, add the jeera and dry roast until it darkens in colour and is aromatic, transfer on a plate to cool down.
+             Further add the remaining whole spices and dry roast them as well until they are aromatic. Further transfer them on the same plate and allow them to cool down.
+             Once cooled, transfer in a grinding jar, along with the remaining ingredients and grind to make a fine powder, special spice mix or dahi bhalla wali masala is ready, store in an airtight container and use accordingly.
+            ">Procedure:</a>
+          </div>
+        </div>
+        <!-- Recipe 3 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/564x/55/85/f7/5585f72127114dee1fad024f0c425b16.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Fruit smoothie bowl with granola and coconut flakes">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Momos</h3>
+          <p class="text-gray-700 mb-4">A refreshing smoothie bowl with granola and coconut flakes.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Momos wrap</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            FOR MOMOS WRAP:
+            2 cup maida,
+            ½ tsp salt,
+            water, for kneading,
+            FOR MOMOS STUFFING:
+            2 tbsp oil,
+            2 chilli, finely chopped,
+            1 inch ginger, finely chopped,
+            3 clove garlic, finely chopped,
+            2 tbsp spring onion, chopped,
+            1 carrot, finely chopped,
+            3 cup cabbage, finely chopped,
+            ½ tsp pepper powder,
+            ½ tsp salt.</div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/vVk32WacIfs?si=a_MlDMe41R-46anG" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Momos wra0" data-description="
+HOW TO KNEAD DOUGH FOR MOMOS WRAP:
+Firstly, in a large bowl take 2 cup maida, ½ tsp salt, and mix well.
+Add water as required and knead the dough.
+Knead for 5 minutes or until the dough turns smooth and tight.
+Cover the rest of the dough for 20 minutes.
+HOW TO MAKE MOMOS STUFFING:
+Firstly, in a large wok heat 2 tbsp oil.
+Add 2 chilli, 1 inch ginger, 3 cloves garlic, and 2 tbsp spring onion.
+Stir fry on high flame.
+Add 1 carrot and saute until the carrot softens slightly.
+Also add 3 cup cabbage, ½ tsp pepper powder, and ½ tsp salt.
+Stir fry on high flame until the cabbage softens slightly. make sure not to overcook the stuffing, as the cabbage will turn mushy and releases water.
+HOW TO SHAPE THE MOMOS:
+After the dough has rested for 20 minutes, knead the dough again.
+Pinch a ball sized dough and dust with maida.
+Roll to thin thickness.
+You can cut the wrap using a round bowl.
+Roll again to get the wrap as thin as possible.
+Stuff the stuffing in the centre and spread some water on the sides.
+Now start pleating or folding to have different shapes. water helps to seal the momos easily.
+Place the shaped momos into the steamer. make sure to brush the plate with oil to prevent it from sticking.
+Cover and steam for 10 minutes, or until the momos turn shiny.
+Finally, enjoy veg momos with spicy momos chutney..">Procedure</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="recipe-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content"></div>
+  </div>
+
+  <script>
+    // JavaScript code for modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('recipe-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      const modalClose = modal.querySelector('.modal-close');
+
+      document.querySelectorAll('.procedure-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const recipe = this.getAttribute('data-recipe');
+          const description = this.getAttribute('data-description');
+          modalContent.innerHTML = `<h2>${recipe}</h2><p>${description}</p>`;
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      themeToggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+</body>
+</html>

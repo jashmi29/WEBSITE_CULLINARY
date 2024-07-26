@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rice - Hungry Chef</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #050404;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+    
+
+    /* Hero background image */
+    .hero-bg {
+      background-image: url('https://i.pinimg.com/564x/3c/cd/f1/3ccdf1d10719d43f7744e28f918a01f0.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+    }
+  
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f7f4f4;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Body blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
+    /* Flexbox for links */
+    .recipe-links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recipe-links a {
+      flex: 1;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#backtohome" class="text-gray-800 hover:text-gray-600"> back to Home</a></li>
+         
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">Rice Recipes</h1>
+  </section>
+
+  <section id="breakfast-brunch" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-4xl font-bold text-gray-800 mb-12">Delicious Rice Options</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe 1 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/564x/2b/64/e1/2b64e15ac11687bb3074b9f7abc87edd.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="A Flavorful Fusion of Spices and Tender Chicken">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Authentic Chicken Biryani</h3>
+          <p class="text-gray-700 mb-4">A Flavorful Fusion of Spices and Tender Chicken</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Authentic Chicken Briyani</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+            1 cup basmati rice, soaked for 30 minutes and drained
+            500 grams chicken, bone-in pieces
+            1 large onion, thinly sliced
+            2 tomatoes, chopped
+            1/2 cup plain yogurt
+            2 tablespoons biryani masala or garam masala
+            1 teaspoon turmeric powder
+            1 teaspoon red chili powder (adjust to taste)
+            Salt to taste
+            2 tablespoons vegetable oil or ghee
+            Fresh cilantro leaves for garnish
+            Fried onions for garnish(optional)</div>
+          <div class="recipe-links">
+            <a href="https://your-avocado-toast-video-url.com" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Authentic Chicken Biryani" data-description="
+            
+            Procedure: 
+
+            Prepare Ingredients:
+            Beat the eggs in a bowl and keep aside.
+            Chop all vegetables finely.
+            Cooking:
+            
+            Heat 1 tablespoon of oil in a large pan or wok over medium-high heat.
+            Add beaten eggs and scramble until fully cooked. Remove from pan and set aside.
+            Stir-frying Vegetables:
+            
+            In the same pan, heat the remaining oil over medium-high heat.
+            Add chopped garlic and sauté for a few seconds until fragrant.
+            Add chopped onion and sauté until translucent.
+            Add Vegetables:
+            
+            Add chopped beans, carrots, capsicum, and cabbage. Stir-fry for 2-3 minutes until vegetables are tender-crisp.
+            Add Rice:
+            
+            Add cooked basmati rice to the pan. Break up any clumps and stir-fry for 2 minutes to combine with vegetables.
+            Seasoning:
+            
+            Add soy sauce, pepper powder, and salt to taste. Mix well to coat rice evenly with the sauce.
+            Combine with Eggs:
+            
+            Return scrambled eggs to the pan with rice and vegetables. Mix gently to combine.
+            Final Touch:
+            
+            Cook for another 1-2 minutes until everything is heated through.
+            Serve:
+            
+            Garnish with chopped spring onions.
+            Serve hot as is or with a side of chili sauce or ketchup">Procedure:</a>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/564x/e9/bd/1d/e9bd1d72950e3aa98445c15c4bcb74e9.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Aromatic savory South Indian dish">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2"> Khara Pongal</h3>
+          <p class="text-gray-700 mb-4">Aromatic savory South Indian dish.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Khara Pongal</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            ½ cup rice (short grain or millets)
+          ½ cup moong dal (split yellow lentils)
+            3¼ to 3½ cups water
+            ½ tsp salt
+      For tempering:
+          2-3 tbsp ghee
+          ¾ tsp cumin seeds
+          ½ tsp black peppercorns, crushed  
+            1 inch ginger, grated
+            1 sprig curry leaves
+          ⅛ tsp asafoetida (hing)
+            10-12 cashews (optional)
+            </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/1R18lwAVTVw" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Khara Pongal" data-description="
+            In a pressure cooker, heat 1 tsp ghee. Add rice and moong dal, sauté for a minute.
+            Add 4 cups water and salt. Cover and pressure cook for 5 whistles on medium flame.
+            Once pressure settles, open and mix well.
+            In a pan, heat 2-3 tbsp ghee. Add cumin, crushed pepper, ginger, curry leaves, hing and cashews. Sauté until cashews are golden.
+            Pour the tempering over cooked pongal. Mix well, adding more ghee if needed.
+            Serve hot with coconut chutney and sambar.">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 3 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/564x/28/e9/4c/28e94caac8618f0f31607978678a1e86.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Fruit smoothie bowl with granola and coconut flakes">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Egg fried Rice</h3>
+          <p class="text-gray-700 mb-4">A refreshing smoothie bowl with granola and coconut flakes.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Egg fried Rice</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            4 cups day-old cold white rice (ref note 1)
+3 tablespoon Vegetable Oil
+4 large eggs
+½ cup white parts of green onion
+1 cup carrots diced
+2-3 cloves garlic minced about 1 tablespoon
+2 tablespoon Soy sauce
+1-2 teaspoon Sesame oil
+salt and pepper taste
+green onion to garnish.</div>
+          <div class="recipe-links">
+            <a href="https://your-smoothie-bowl-video-url.com" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Egg fried Rice" data-description="
+            
+Season eggs with salt and pepper. Whisk well.
+Heat 1 tablespoon of oil in a wok. Add eggs and cook just until set. The cooked eggs should still look soft, slightly creamy. Remove and keep aside.
+Heat the rest of the oil. When the wok/skillet is really hot, add white parts of the green onion, carrot. Stir fry for 2-3 minutes on medium-high heat.
+Add minced garlic and cook for another minute until the raw smell is gone.
+Add rice, salt, and pepper. Mix and toss for 1 minute on high heat.
+Add scrambled eggs, green onions, sesame oil. Add soy sauce around the edges (watch video).
+Toss on high heat for 2-3 minutes. It is ok if the rice looks slightly toasted here and there.
+Serve with more green onions and sriracha on top.">Procedure</a>
+          </div>
+        </div>
+        <!-- Add more recipes similarly -->
+      </div>
+    </div>
+  </section>
+
+  <div id="recipe-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h2 id="modal-recipe-name" class="text-2xl font-bold mb-4"></h2>
+      <p id="modal-recipe-description"></p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('recipe-modal');
+      const modalClose = document.querySelector('.modal-close');
+      const recipeLinks = document.querySelectorAll('.procedure-link');
+      const modalRecipeName = document.getElementById('modal-recipe-name');
+      const modalRecipeDescription = document.getElementById('modal-recipe-description');
+
+      recipeLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const recipeName = this.getAttribute('data-recipe');
+          const recipeDescription = this.getAttribute('data-description');
+          modalRecipeName.textContent = recipeName;
+          modalRecipeDescription.textContent = recipeDescription;
+          document.body.classList.add('modal-open');
+          modal.style.display = 'block';
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        document.body.classList.remove('modal-open');
+        modal.style.display = 'none';
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          document.body.classList.remove('modal-open');
+          modal.style.display = 'none';
+        }
+      });
+
+      // Toggle theme
+      const themeToggle = document.getElementById('theme-toggle');
+      themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+</body>
+</html>

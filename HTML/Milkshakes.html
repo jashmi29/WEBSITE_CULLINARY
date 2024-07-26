@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milkshakes - Hungry Chef</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #050404;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+     /* Hero background image */
+    .hero-bg {
+      background-image: url('https://media4.giphy.com/media/dvIvdqxGRIA6yJnhwm/giphy.webp?cid=ecf05e47dwywudmf721q8b56edxgflfeyqii5e4q3904zbfw&ep=v1_gifs_search&rid=giphy.webp&ct=g');
+      background-size: cover;
+      background-position: center;
+      height: 80vh; /* Adjust this value as needed */
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f7f4f4;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Body blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Flexbox for links */
+    .recipe-links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recipe-links a {
+      flex: 1;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#backtohome" class="text-gray-800 hover:text-gray-600">back to Home</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">Milkshakes</h1>
+  </section>
+
+  <section id="breakfast-brunch" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe 1 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/d2/e4/0c/d2e40c4a9f83acf4b80a7439af097a8e.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Satisfying after-dinner treat">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Chocolate Milkshake</h3>
+          <p class="text-gray-700 mb-4">Satisfying after-dinner treat.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Chocolate Milkshake</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+            1 cup (150g) Chocolate ice cream
+1/3 cup (80ml) Milk
+1 tablespoon Chocolate sauce
+Whipped cream for topping (optional)
+Grated chocolate for garnishing
+
+            
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/DWG--xG0i-A?si=_PQkT4H6GHEP9bIH" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Chocolate Milkshake" data-description="
+            Ensure you have all the ingredients ready and measured.
+Blend the Ingredients:
+
+In a blender, add 1 cup of chocolate ice cream.
+Pour in 1/3 cup of milk.
+Add 1 tablespoon of chocolate sauce.
+Blend everything together until smooth and creamy.
+Serve:
+
+Pour the chocolate milkshake into a tall glass.
+Optionally, top it with whipped cream for added richness.
+Garnish with grated chocolate for a decorative touch and extra chocolate flavor.
+Enjoy:
+
+Serve immediately with a straw and enjoy your delicious Chocolate Milkshake!
+            
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/ae/97/2f/ae972fcc0ef73cd33e32671dc656fe0f.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="The most amazing red velvet cake recipe with cream cheese frosting">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2"> Oreo Milkshake</h3>
+          <p class="text-gray-700 mb-4">The most amazing red velvet cake recipe with cream cheese frosting.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Oreo Milkshake</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            1 cup (150g) Vanilla ice cream
+            1/3 cup (80ml) Milk
+            3-4 Oreo cookies
+            Whipped cream for topping (optional)
+            Crushed Oreos for garnishing
+            
+
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/DWG--xG0i-A?si=_PQkT4H6GHEP9bIH" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe=" Oreo Milkshake" data-description="
+            Take 3-4 Oreo cookies and separate them. You will use both the cookies and the cream filling inside.
+            Blend the Ingredients:
+            
+            In a blender, add 1 cup of vanilla ice cream.
+            Pour in 1/3 cup of milk.
+            Break the Oreo cookies into smaller pieces and add them into the blender.
+            Blend everything together until smooth and creamy. Make sure all the cookie pieces are fully incorporated into the milkshake.
+            Serve:
+            
+            Pour the Oreo milkshake into a tall glass.
+            Optionally, top it with whipped cream for extra richness.
+            Garnish with crushed Oreos on top for added texture and flavor.
+            Enjoy:
+            
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 3 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/a2/69/b1/a269b136c37a348887a22e9f52d47c68.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Some recipes are trends and some everyone's favourite.">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Strawberry Milkshake</h3>
+          <p class="text-gray-700 mb-4">Some recipes are trends and some everyone's favourite.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Strawberry Milkshake</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            1 cup (150g) Vanilla ice cream
+            1/3 cup (80ml) Milk
+            5-6 Strawberries
+            1 teaspoon Vanilla extract
+            Whipped cream for topping (optional)
+             .</div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/q4wUWqV8kjc?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Strawberry Milkshake" data-description="
+
+            Wash the strawberries thoroughly.
+            Remove the stems and cut the strawberries into halves or quarters for easier blending.
+            Blend the Ingredients:
+            
+            In a blender, add 1 cup of vanilla ice cream.
+            Pour in 1/3 cup of milk.
+            Add the prepared strawberries.
+            Add 1 teaspoon of vanilla extract.
+            Blend everything together until smooth and creamy. Make sure the strawberries are fully incorporated into the milkshake.
+            Serve:
+            
+            Pour the strawberry milkshake into a tall glass.
+            Optionally, top it with whipped cream for added richness and a decorative touch.
+            Enjoy:
+            .">Procedure</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="recipe-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content"></div>
+  </div>
+
+  <script>
+    // JavaScript code for modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('recipe-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      const modalClose = modal.querySelector('.modal-close');
+
+      document.querySelectorAll('.procedure-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const recipe = this.getAttribute('data-recipe');
+          const description = this.getAttribute('data-description');
+          modalContent.innerHTML = `<h2>${recipe}</h2><p>${description}</p>`;
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      themeToggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+</body>
+</html>

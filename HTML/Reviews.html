@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hungry Chef - Reviews and Recipes</title>
+<style>
+/* General Styles */
+body {
+  font-family: 'Crimson Text', serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #161313;
+  color: #fff;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  box-sizing: border-box;
+  z-index: 100;
+  background-color: rgba(16, 14, 14, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 2em;
+  color: #fff;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0 20px;
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5em;
+}
+
+/* Dropdown Menu Styles */
+nav ul li ul {
+  display: none;
+  position: absolute;
+  background-color: rgba(16, 14, 14, 0.9);
+  padding: 10px;
+  border-radius: 5px;
+  width: 150px;
+  left: -20px;
+  top: 30px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+nav ul li:hover > ul {
+  display: flex;
+}
+
+nav ul li ul li {
+  margin: 10px 0;
+}
+
+nav ul li ul li a {
+  font-size: 1em;
+}
+
+/* Review Section Styles */
+.review-section {
+  margin-top: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('https://www.publicdomainpictures.net/pictures/320000/nahled/background-image.png') no-repeat center center/cover;
+  padding: 50px 0;
+}
+
+.review-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.review-section form {
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-section form input,
+.review-section form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.review-section form input[type="file"] {
+  padding: 5px;
+}
+
+.review-section form input[type="submit"] {
+  background: #fff;
+  color: #0a0909;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.review-section form input[type="submit"]:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.review-list {
+  width: 80%;
+  max-width: 600px;
+  margin-top: 40px;
+}
+
+.review {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.review h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.review h4 {
+  margin: 5px 0;
+  font-size: 1.2em;
+}
+
+.review p {
+  margin: 10px 0 0;
+  font-size: 1em;
+}
+
+/* Rating Section Styles */
+.star-rating {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.star-rating .stars {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s;
+  margin-right: 5px;
+}
+
+.star:hover,
+.star.selected {
+  color: #ffd700;
+}
+
+/* Canvas for Confetti */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Hungry Chef</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Back to Home</a></li>
+      <li>
+        <a href="#">Menu</a>
+        <ul>
+          <li><a href="starters.html">Starters</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+          <li><a href="beverages.html">Beverages</a></li>
+          <li><a href="special-diets.html">Special Diets</a></li>
+        </ul> 
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<section class="review-section">
+  <h2>Submit Your Recipe</h2>
+  <form id="reviewForm">
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <input type="text" id="recipeTitle" name="recipeTitle" placeholder="Recipe Title" required>
+    <textarea id="recipeDescription" name="recipeDescription" rows="5" placeholder="Recipe Description" required></textarea>
+    <input type="file" id="recipeFile" name="recipeFile" accept="image/*,video/*">
+    <div class="star-rating">
+      <span class="star" data-value="1">&#9733;</span>
+      <span class="star" data-value="2">&#9733;</span>
+      <span class="star" data-value="3">&#9733;</span>
+      <span class="star" data-value="4">&#9733;</span>
+      <span class="star" data-value="5">&#9733;</span>
+    </div>
+    <input type="submit" value="Submit">
+  </form>
+
+  <div class="review-list" id="reviewList">
+    <!-- Reviews will be appended here -->
+  </div>
+</section>
+
+<!-- Canvas for Confetti Effect -->
+<canvas id="confetti-canvas"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.1/dist/canvas-confetti.min.js"></script>
+<script>
+// Handle form submission
+document.getElementById('reviewForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  // Get form values
+  var name = document.getElementById('name').value;
+  var recipeTitle = document.getElementById('recipeTitle').value;
+  var recipeDescription = document.getElementById('recipeDescription').value;
+  var recipeFile = document.getElementById('recipeFile').files[0];
+  var rating = document.querySelector('.star.selected').getAttribute('data-value');
+
+  // Create a new review element
+  var review = document.createElement('div');
+  review.classList.add('review');
+  review.innerHTML = `
+    <h3>${name}</h3>
+    <h4>${recipeTitle}</h4>
+    <p>${recipeDescription}</p>
+    <div class="star-rating">
+      Rated: ${rating} stars
+    </div>
+  `;
+
+  // Display uploaded image if available
+  if (recipeFile) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var img = document.createElement('img');
+      img.src = e.target.result;
+      img.style.maxWidth = '100%';
+      review.appendChild(img);
+    };
+    reader.readAsDataURL(recipeFile);
+  }
+
+  // Append the new review to the review list
+  document.getElementById('reviewList').appendChild(review);
+
+  // Trigger confetti effect
+  confettiEffect(rating);
+
+  // Clear the form
+  document.getElementById('reviewForm').reset();
+});
+
+// Handle star rating selection
+document.querySelectorAll('.star').forEach(star => {
+  star.addEventListener('click', function() {
+    var clickedValue = this.getAttribute('data-value');
+    // Remove selected class from all stars
+    document.querySelectorAll('.star').forEach(s => s.classList.remove('selected'));
+    // Add selected class to the clicked star and all stars to the left
+    document.querySelectorAll('.star').forEach(s => {
+      if (s.getAttribute('data-value') <= clickedValue) {
+        s.classList.add('selected');
+      }
+    });
+  });
+});
+
+// Function to create confetti effect
+function confettiEffect(rating) {
+  var confettiSettings = {
+    target: 'confetti-canvas',
+    max: 80,
+    size: 3,
+    animate: true,
+    props: ['circle', 'square', 'triangle'],
+    colors: [[255, 165, 0], [255, 69, 0], [255, 215, 0], [255, 99, 71]]
+  };
+  var confetti = new ConfettiGenerator(confettiSettings);
+  confetti.render();
+
+  // Adjust the confetti based on the rating
+  if (rating < 3) {
+    confettiSettings.colors = [[255, 69, 0], [255, 99, 71]];
+  } else {
+    confettiSettings.colors = [[255, 165, 0], [255, 215, 0]];
+  }
+}
+</script>
+
+</body>
+</html>

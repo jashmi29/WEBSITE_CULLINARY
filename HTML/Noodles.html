@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snacks - Hungry Chef</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #050404;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    /* Hero background image */
+    .hero-bg {
+      background-image: url('https://i.pinimg.com/564x/a0/7b/e5/a07be5fcd6b3499d2b62175b92db9340.jpg');
+      background-size:cover ;
+      background-position: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f7f4f4;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Body blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Flexbox for links */
+    .recipe-links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recipe-links a {
+      flex: 1;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#backtohome" class="text-gray-800 hover:text-gray-600">back to Home</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">Snack Recipes</h1>
+  </section>
+
+  <section id="breakfast-brunch" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-4xl font-bold text-gray-800 mb-12">Delicious  Noodles dishes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe 1 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/0c/13/40/0c134055e9423929054c61f930467173.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Delightfully creamy and flavorful pasta dish">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Pink Sauce Noodles</h3>
+          <p class="text-gray-700 mb-4">Delightfully creamy and flavorful pasta dish</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Pink Sauce Noodles</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+            3 Cups Penne Pasta ( 1 Cup - 250 Ml )
+8 Tomato 
+75 Gms Butter  
+1 Tbsp Oil  
+10 Cloves Garlic  
+1 No.Onion 
+1 Cup Green Capsicum  
+1 Cup Red Capsicum
+1 Cup Sweet Corn 
+1 Tsp Salt  
+1 Tsp Pepper  
+1 Tsp Red Chilli Flakes 
+2 Tsp Italian Seasoning
+2 Tbsp Maida
+1 Cup Milk  
+1 Tbsp Tomato Ketchup  
+1 Tsp Paprika Powder  ( Optional )
+4 Nos Cheese Slices 
+Basil Leaves
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/vxOzUCYJQ8M?si=kkuoxOu68VAeUTUB" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Goli baje" data-description="
+            1. Take a pot, add water and salt. Drop in the Penne Pasta shells and cook them until 90% cooked.
+            2. Once done, remove them from the pot, strain and keep them aside.
+            3. To another pot, add water and boil. Gently drop in the slightly slit tomatoes and cook them until they outer skin shrinks.
+            4. Remove the tomatoes from the pot, remove the skin, chop them into pieces and grind them into a fine puree. Keep the tomato puree aside.
+            5. Add butter and oil to a pan. Once the butter melts, add the chopped garlic and onions.
+            6. Saute for about two minutes and add in the chopped green and red capsicum.
+            7. Mix well and add the cooked sweet corn. 
+            8. Cook the veggies for 2-3 minutes and then add salt, pepper powder, Chilli flakes, Italian seasoning.
+            9. Add maida to the mixture and mix it all well. Add in the milk and quickly mix well.
+            10. Cook this for 3-4 minutes and then add in the tomato puree. Cook for 3-4 minutes again.
+            11. Add tomato ketchup, paprika powder, cheese slices and mix well. Dilute the sauce with some milk if it is too thick. 
+            12. Add in the cooked penne pasta and give it all a nice mix. Cook the pasta for about 5 minutes again.
+            13. Lastly, add the basil leaves, mix and turn off the stove.
+            14. Delicious Pink Sauce Pasta is ready to be served.
+            
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://www.funfoodfrolic.com/wp-content/uploads/2019/07/Chili-Garlic-Noodles.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Spicy and flavorful Asian-inspired dish">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Chili Garlic Noodles</h3>
+          <p class="text-gray-700 mb-4">Spicy and flavorful Asian-inspired dish.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Chili Garlic Noodles</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            300 grams Hakka Noodles,
+            2 tablespoons Oil,
+            2-3 cloves Garlic, minced,
+             2-3 tablespoons Spring Onion Whites, chopped
+             1 medium Onion, sliced,
+ 1  Green Chili, finely chopped,
+1 Carrots, sliced,
+1/2 Capsicum, sliced,
+1/2 cup Cabbage, shredded,
+1/2 cup French Beans, chopped,
+1/2 cup Mushrooms, sliced,
+1 tablespoon Soy Sauce
+1 teaspoon Rice Vinegar
+1/2 teaspoon Salt
+1/4 teaspoon Black Pepper
+2-3 tablespoons Spring Onion Greens, chopped
+1 tablespoon Chilli Oil (optional)
+1 teaspoon Vinegar
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/aQHr9Zsnzbw?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Crispy corn cutlet" data-description="
+            . For the noodles to cook – take a pan, add enough water, add some salt as required and add Hakka noodles.
+            2. Once its 90% cooked take it off the flame and strain it, add some oil so that it won't stick to each other.
+            3. Take a pan, add sesame oil, some finely chopped garlic, onion and green chili.
+            4. Now start adding vegetables like carrot , shredded cabbage, yellow red and green bell pepper, some spring onion whites. (You can add other vegetables of your choice too)
+            5. Then add vinegar, soy sauce, red chili sauce, green chili sauce and pepper powder.
+            6. Finally, add the cooked noodles and toss it all together. Stir fry the noodles for 10 mins.
+            7. Check for seasoning and add salt if required. 
+            8. Garnish it with some spring onion greens.
+            9. Serve the Chili Garlic Noodles hot.
+            ">Procedure:</a>
+          </div>
+        </div>
+        <!-- Recipe 3 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/86/0e/0d/860e0dcfa62f5b93fccd6c98bb5b3386.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="A popular and versatile dish">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Chicken noodles</h3>
+          <p class="text-gray-700 mb-4">A popular and versatile dish.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Chicken noodles</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            Boneless chicken, cut into thin 2” strips- 250 gms
+To be marinated with:
+ Salt-1/4 tsp,
+ Pepper powder- 1/4 tsp,
+ Soy sauce- 1 tsp,
+ Vinegar- 1 tsp,
+ Baking soda- 1/4 tsp,
+
+ Noodles, 150 gms pack , sufficient for 2 persons
+
+ Garlic, fine sliced- 5 cloves,
+ Spring onion/scallions, whites- 2 tbsp,
+ Spring onion/scallions, greens- 2 tbsp,
+ Shredded cabbage- 1 cup,
+ Carrots, fine sliced(like sticks)-1 cup,
+ Green peppers/Capsicum, fine sliced- 1 cup,
+
+ Soy sauce- 1 tsp, 
+ Vinegar- 1/2 tsp,
+ Green Chilli Sauce- 2 tsp,
+ Red Chilli Sauce- 1 tsp,
+ Salt & pepper to season,
+ Oil.</div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/Rbpby8YObA4?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Chicken noodles" data-description="
+
+            Heat 1.5 tbsp oil in a wok.
+             Add the sliced garlic and give it a stir. 
+             Now add the marinated chicken strips and fry on high heat for 3-4 mins till cooked & evenly browned.
+             Add the chopped spring onion whites, mix and give a stir for 15 secs.
+           Add the carrot slices, mix and sauté on high heat for 30 secs.
+             Now add the shredded cabbage & the green peppers, mix and sauté for 1 min on high heat.
+             Now add the boiled noodles and toss it with the chicken and veggies to combine everything.
+             Add the sauces and mix it well.
+             Lastly garnish with spring onion greens, give a mix & serve hot.">Procedure</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="recipe-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content"></div>
+  </div>
+
+  <script>
+    // JavaScript code for modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('recipe-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      const modalClose = modal.querySelector('.modal-close');
+
+      document.querySelectorAll('.procedure-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const recipe = this.getAttribute('data-recipe');
+          const description = this.getAttribute('data-description');
+          modalContent.innerHTML = `<h2>${recipe}</h2><p>${description}</p>`;
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      themeToggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+</body>
+</html>

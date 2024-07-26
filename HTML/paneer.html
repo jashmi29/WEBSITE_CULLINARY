@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paneer - Hungry Chef</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #050404;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    /* Hero background image */
+    .hero-bg {
+      background-image: url('https://i.pinimg.com/564x/a0/7b/e5/a07be5fcd6b3499d2b62175b92db9340.jpg');
+      background-size:cover ;
+      background-position: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f7f4f4;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Body blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Flexbox for links */
+    .recipe-links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recipe-links a {
+      flex: 1;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#backtohome" class="text-gray-800 hover:text-gray-600">back to Home</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">Paneer Recipes</h1>
+  </section>
+
+  <section id="breakfast-brunch" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-4xl font-bold text-gray-800 mb-12">Delicious Paneer dishes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe 1 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/f4/3e/76/f43e76e61cb77ec6397939b1d33ec7f2.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Delightfully creamy and flavorful Paneer dish">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Paneer Butter Masala</h3>
+          <p class="text-gray-700 mb-4">Delightfully creamy and flavorful paneeer dish</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Paneer Butter Masala</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+            Paste
+            TOMATO 4 NOS,
+            GARLIC 8-10 CLOVES, 
+            GINGER 1 inch,
+            CORIANDER STEMS 2 TBSP,
+            GREEN CHILLI  1 NO. 
+            KASHMIRI  DEGI RED CHILLI POWDER 1.5 TBSP
+            CORIANDER POWDER  1 TBSP
+            CUMIN POWDER 1/2 TSP
+            CASHEW  15 NOS. (SOAKED)
+            Paneer sauteing
+            OIL 1 TBSP
+            BUTTER 1 TBSP
+            PANEER  500 GRAMS (CUBED)
+            SALT TO TASTE
+            KASHMIRI RED CHILLI POWDER A PINCH
+         
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/bUounn_Bmy4?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Paneer Butter Masala" data-description="
+            Add all the ingredients of the paste into a mixer grinder jar & grind it into a fine paste, make sure you soak the cashews in boiling water for 10-15 minutes before adding it, you can also boil it for 5 minutes.
+To sauté the paneer, set a pan over high heat & once it gets hot, add the oil & butter.
+Once the oil gets hot, add the cubed paneer, salt & kashmiri red chilli powder, then toss the paneer over high flame for 1-2 minutes, doing this step will help the paneer to hold its structure in the gravy, once sauteed remove the paneer into a bowl & set it aside until you make the gravy.
+To make the gravy, heat a wok or a kadhai then add oil & butter, once the oil gets hot, add all the whole spices along with, garlic & chopped green chilli, stir well & then add the onions & cook over medium high flame until the onions turn light golden brown.
+Once the onions turn light golden brown add turmeric powder & kashmiri red chilli powder, stir well & then add a splash of hot water, stir well & cook the masala for 2-3 minutes.
+Further add the prepared paste along with salt & sugar, stir well & cook over medium high flame until the oil separates.
+Once the oil separates add hot water as required to adjust the gravy then cook for 2-3 minutes, then taste the gravy & adjust the seasoning accordingly.
+Further add the paneer, butter & all the remaining ingredients, stir well & cook only for 1-2 minutes & then finally sprinkle some more fresh coriander.
+Your paneer butter masala is ready, serve hot with naan, tandoori roti or rumali roti.
+            
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/2d/5f/d7/2d5fd799b3d6714c22f49c94531ad033.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Rich and flavorful vegetarian dish">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">PANEER HYDERABADI</h3>
+          <p class="text-gray-700 mb-4">Rich and flavorful vegetarian dish</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: PANEER HYDERABADI</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            Paneer 200gms cut into cubes
+            Curd 2 tbsp
+             Cream 2 tbsp
+             1 black cardamom (elaichi)
+             4 green cardamom (elaichi)
+             4 Cloves (lavang)
+             Two 1 inch Cinnamon(dalchini)
+             Cumin  powder  1 tsp
+             Coriander powder 1 tsp
+             Turmeric powder  1/2 tsp
+             Red Chilli powder 1 tsp
+             Garam masala powder ½ tsp  
+             Kasuri methi 1 tsp
+             Salt to taste
+            Green chillis - 1 finely chopped
+             
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/aQHr9Zsnzbw?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="PANEER HYDERABADI" data-description="
+            For the paste : 
+
+            - Spinach (Palak) one small bunch, roughly chopped
+            - Coriander leaves one bunch, roughly chopped
+            - Green chillies-  2 roughly chopped
+            - Onions sliced-1 medium
+            - Tomatoes, small - 2
+            - Ginger -1 inch piece
+            - Garlic- 7 cloves 
+            
+            Preparation: 
+            
+            - Add 1 tbsp oil & add onions.Fry till the onion is just soft 
+            - Add the ginger garlic & green chillies & fry for a minute
+            - Now add the tomato & cook till soft. 
+            - Add the spinach and cook till soft & add the coriander leaves. 
+            - Just mix it well & switch off
+            - Cool this & blend it into a smooth paste
+             
+            Process :
+            
+            - Heat oil & add the whole garam masalas. Flavour the oil & remove
+            - Now add the finely chopped green chillies & then the green paste. Cook for 3-4 mins
+            - Switch off the heat & add the beaten curd & the cream. Mix well & cook on low flame for few minutes till oil separates
+            - Now add the powders other than garam masala & kasuri methi. Also add the salt
+            - Once oil separates add the paneer pieces. After 2 mins add the garam Masala powder. Mix well
+            - At the end add the crushed kasuri methi , mix well & simmer till done
+            
+            ">Procedure </a>
+          </div>
+        </div>
+          <!-- Recipe 3 -->
+          <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+            <img src="https://i.pinimg.com/474x/69/df/51/69df51b1b0c995ba54828db898384467.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Delightfully creamy and flavorful Paneer dish">
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Paneer Kathi Roll</h3>
+            <p class="text-gray-700 mb-4">Delightfully creamy and flavorful paneeer dish</p>
+            <div class="text-xl font-bold text-orange-500">Recipe: Paneer Kathi Roll</div>
+            <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+              For the dough:
+               Refined flour 2 cups,
+                Sugar 1.5 tbsp,
+                Salt 1 tsp,
+                Ghee 2 tbsp,
+                Warm water (as required).
+
+                For making paneer:
+              
+                  Mustard oil 2 tbsp,
+                  Kashmiri red chilli powder 1 tbsp,
+                  Garam masala ½ tsp,
+                  Black salt ¼ tsp,
+                  Ginger garlic paste 1 tbsp,
+                  Lemon juice 1 tsp,
+                  Curd 1/3 cup,
+                  Salt to taste,
+                  Paneer 250gm,
+                  Onion 1/3 cup (lacche),
+                  Capsicum 1/3 cup (julienned),
+                  Tomato 1/3 cup (julienned),
+                  Red chilli powder 1 pinch.
+
+                  Cooking the paratha:
+          
+                    Dough,
+                    Oil (for drizzling),
+                    Ghee (for brushing),
+                    Refined flour (for dusting),
+                    Oil (for cooking),
+           
+            </div>
+            <div class="recipe-links">
+              <a href="https://youtu.be/Wb95nUQZLXM?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+              <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Paneer Kathi Roll " data-description="
+              For the dough:
+              •Take a large bowl & add the refined flour in it along with sugar & salt, mix it well.
+              •Further add ghee & mix again, now add warm water as required, slowly in batches & combine everything well.
+              • Once everything comes together, transfer the dough onto the kitchen platform and knead it well, initially the dough will be sticky with an uneven surface, stretch the dough while kneading until it becomes soft & non-sticky, knead for 10-12 minutes.
+              • Once the dough becomes smooth & non-sticky, form it into a ball by tucking the edges underneath, drizzle some oil, cover it with a damp cloth & let it rest for an hour at least.
+              • Your dough is ready.
+              
+              Cooking the paratha:
+              • Once the dough has rested roll it into a log & cut equal portions of dough balls from it, drizzle some oil over the dough balls & let them rest for 10 minutes at least, this helps the gluten to relaxes which makes it easier to roll.
+ • Transfer the dough ball on to a greased platform & flatten it a bit using your finger, further roll it into a thin chapati using a rolling pin, now brush ghee on the surface of the chapati & sprinkle some refined flour over it, now lift it from one end & start making pleats, then roll the pleated chapati from one end to other & tuck the last portion of it underneath. You pede for parathas are ready.
+ • Now dust the peda in dry refined flour & using a rolling pin roll the peda to form a chapati, make sure it is neither too thick nor too thin.
+ • Set a pan on medium high heat & let it heat nicely, now lay the rolled-out paratha on the pan & cook without oil, press the paratha using a napkin so that it cooks evenly, once it cooks slightly from one side flip & cook it the same way on the other side.
+ • Further add some oil to the pan & cook until one side gets crispy, flip & cook it the same way on the other side until it gets crispy, make sure that you keep pressing it so that it cooks evenly.
+ • Your paratha is ready.
+
+ For making paneer:
+
+ • Take bowl, add mustard oil & kashimiri red chilli powder, whisk it well to release its natural colour.
+ • Further add garam masala, ginger garlic paste, lemon juice, curd, salt to taste and mix it well using a whisk, at this stage you can smoke the marinade for 3-4 minutes using live charcoal & ghee.
+ • Further the paneer into cubes & add them to the marinade, mix well.
+ • Now set a pan on high heat & add some oil into it for sautéing, once the oil is heated add the marinated paneer cubes & cook on high flame for 2-3 minutes, avoid frequent stirring to prevent the paneer cubes from breaking.
+ • Once the marinade dries out & paneer gets a nice colour add onions & the remaining veggies with red chilli powder, toss everything well on high flame for 1-2 minutes.
+ • Your paneer filling is ready.
+              ">Procedure</a>
+            </div>
+          </div>
+        
+  </section>
+
+  <!-- Modal -->
+  <div id="recipe-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content"></div>
+  </div>
+
+  <script>
+    // JavaScript code for modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('recipe-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      const modalClose = modal.querySelector('.modal-close');
+
+      document.querySelectorAll('.procedure-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const recipe = this.getAttribute('data-recipe');
+          const description = this.getAttribute('data-description');
+          modalContent.innerHTML = `<h2>${recipe}</h2><p>${description}</p>`;
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      themeToggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+</body>
+</html>

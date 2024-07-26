@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snacks - Hungry Chef</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #050404;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    /* Hero background image */
+    .hero-bg {
+      background-image: url('https://i.pinimg.com/474x/30/2e/07/302e07a4b23077d8f7a5c5ba4368f04c.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f7f4f4;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Body blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Flexbox for links */
+    .recipe-links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recipe-links a {
+      flex: 1;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#backtohome" class="text-gray-800 hover:text-gray-600">back to Home</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">Snack Recipes</h1>
+  </section>
+
+  <section id="breakfast-brunch" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-4xl font-bold text-gray-800 mb-12">Delicious Snacks Options</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe 1 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/f5/01/11/f501114356e36d6c7453ddfa7d07f840.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Italian dessert made of ladyfinger pastries">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Tiramisu</h3>
+          <p class="text-gray-700 mb-4">Italian dessert made of ladyfinger pastries</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Tiramisu</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+            22 -24 ladyfingers biscuits (Italian Savoiardi)
+            3/8 cup (85 g) of Turbinado Sugar, also known as raw cane sugar (Turbinado sugar has a delicate caramel flavor and fits this dessert perfectly).
+            1 cup and 2 tablespoons (250 g) of high-fat mascarpone cheese (cold)
+            1 and 1/4 cup (300 ml) of Heavy whipping cream (chilled)
+            1 cup and 1/4 cup (300 ml) of strong coffee (cold)
+            2 teaspoons of vanilla extract (You can use Alcohol-free vanilla extract (Good quality Vanilla Flavoring) or other vanilla products of your choice like vanilla beans, pure vanilla powder, or vanilla sugar.
+            Unsweetened Cocoa powder for dusting
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/qGjOb_caCkU?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Tiramisu" data-description="
+            Prepare the espresso coffee and set it aside.
+            Begin the mascarpone cream: In a medium bowl, beat the mascarpone with 3 tablespoons of the heavy whipping cream until smooth.
+            Whip the chilled cream with the vanilla extract and turbinado sugar till soft peaks. Add mascarpone cream and combine while continuing whisking. Chill.
+            Prepare 8 inches (20 cm) springform pan (Grease the tin, then press the parchment paper around the sides).
+            Quickly dip the ladyfingers into the cold/room temperature coffee.
+            Create a firm (no empty space) layer with the dipped ladyfingers in the tin; you will need to cut some biscuits to fit the springform pan.
+            Spread half of the mascarpone cream evenly over the bottom layer of ladyfingers. An offset spatula helps spread it evenly.
+            Repeat the process for the second layer (dipped ladyfinger and the remaining mascarpone cream) and try to get a solid layer. Flat the cream nicely on top with an offset spatula.
+            Move into the fridge for 3 hours (uncovered). If you will serve the Tiramisu the next day, cover with plastic wrap overnight and dust with unsweetened cocoa powder just before serving. From our experience, Tiramisu is always better chilled in the fridge overnight and served the day after. 
+            Enjoy :)
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/564x/6c/a7/23/6ca72307fa36cf7f2d05b498e2bd1101.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Irresistible dessert is a true feast for the senses">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Chocolate Trifle</h3>
+          <p class="text-gray-700 mb-4">Irresistible dessert is a true feast for the senses</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Chocolate Trifle</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            2 cups granulated sugar,
+            ½ cup canola oil,
+            1 cup milk,
+            2 large eggs,
+            1 teaspoon vanilla,
+            1 ¾ cup all purpose flour (fluffed and levelled) (230 grams),
+            ¾ cup unsweetened cocoa powder,
+            2 teaspoons baking soda,
+            1 teaspoon salt,
+            1 teaspoon baking powder,
+            1 cup hot coffee or water,
+            Chocolate Pudding:
+            2 boxes instant chocolate pudding mix (4 serving size)
+            3 ½ cups milk,
+            Whipped cream,
+            Whipped Cream,
+          2 cups heavy whipping cream,
+            ¼ cup powdered icing sugar,
+            1 teaspoon vanilla extract,
+            Optional toppings,
+            crushed oreos,
+          crushed heath or skor bars,
+            maltesers or whoppers,
+            chocolate sauce or chocolate shavings.
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/sldr78JlsM4?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Chocolate Trifle" data-description="
+            Lightly grease and flour one 9x13 pan, tapping firmly to remove any excess flour once coated. Set the oven to 350 degrees F.
+            In a large bowl, whisk together sugar and oil until combined.
+            Add milk, eggs and vanilla and whisk until smooth.
+            Add flour, cocoa powder, baking soda, salt and baking powder and whisk until combined.
+            Slowly stir in hot coffee until batter is smooth — it will be thin.
+            Pour into prepared pan and bake for 20-22 minutes, until a toothpick in the center comes out dry or with moist crumbs. Set aside to cool completely before proceeding with the recipe (I prefer to do this the day before).
+            Once cool, cut into 1 cubes.
+            Chocolate pudding
+            In a medium bowl, whisk together pudding mix and milk until completely smooth.
+            Whipped cream
+            In a medium bowl, whip the cream, sugar and vanilla until stiff peaks form.
+            Assembly
+            Place half of the cake cubes in the bottom of a trifle bowl or large glass bowl. Top with half of the pudding and half of the whipped cream. Add desired optional toppings.
+            Repeat, using remaining ingredients in the same order. Top and garnish as desired.
+            Refrigerate until ready to serve. This trifle is best served the day it is made because of the fresh whipped cream. If you use cool whip, it will last a little longer.
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 3 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/0a/c7/82/0ac7827f3dcee4a8ad966d3ea227496e.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Fruit smoothie bowl with granola and coconut flakes">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Vermicelli Shrikhand </h3>
+          <p class="text-gray-700 mb-4">A refreshing smoothie bowl with granola and coconut flakes.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Vermicelli Shrikhand </div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            Hung curd: 250gms,
+           Powdered sugar: 100gms,
+             Vermicelli: 100gms,
+             Condensed milk: 3tbs,
+             Milk: 1tbs,
+           Cardamom powder: 1tbs,
+             Butter: a little,
+             Pomegranate: a little,
+             Pista: a little(chopped),
+             Almonds: a little(chopped),
+             Saffron: a pinch.</div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/knImJKSPsac?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Vermicelli Shrikhand " data-description="
+            Step 1: Prepping the vermicelli
+
+            First of all in a pan take some butter and let it melt. Once it has melted down put the vermicelli in and fry till golden brown. 
+            Add the condensed milk and mix well.
+            
+            Step 2: Making vermicelli cups
+            
+            Now take a silicon mould and with a spoon fill the mould with vermicelli. Press it with spoon and give it the shape of a small bowl.
+            One can make it with a small bowl with a lining of plastic sheet as well and filling it same way like the silicon mould. It’s super easy.
+            And let all the mould set for an hour in the refrigerator.
+            
+            Step 3: Making the shrikhand
+            
+            In a big bowl put the hung curd in and add the powdered sugar as well and mix it well with a spatula. Put cardamom powder and a little saffron mixed with milk as well and mix everything in.
+            Whisk it well and make smooth texture.
+            
+            Step 4: Assembling up
+            
+            Our vermicelli cups are ready as well. So take them out from the mould.
+            
+            Now pour with a spoon pour shrikhand into the vermicelli cups and garnish with a little saffron, pista, almonds and a few pomegranates and serve well.
+            ">Procedure</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="recipe-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content"></div>
+  </div>
+
+  <script>
+    // JavaScript code for modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('recipe-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      const modalClose = modal.querySelector('.modal-close');
+
+      document.querySelectorAll('.procedure-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const recipe = this.getAttribute('data-recipe');
+          const description = this.getAttribute('data-description');
+          modalContent.innerHTML = `<h2>${recipe}</h2><p>${description}</p>`;
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      themeToggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+</body>
+</html>

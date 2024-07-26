@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STARTERS - Hungry Chef</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #050404;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+     /* Hero background image */
+    .hero-bg {
+      background-image: url('https://media.tenor.com/ISbK0fVpFJEAAAAM/chemistry-fire.gif');
+      background-size: cover;
+      background-position: center;
+      height: 80vh; /* Adjust this value as needed */
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f7f4f4;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Body blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Flexbox for links */
+    .recipe-links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recipe-links a {
+      flex: 1;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#backtohome" class="text-gray-800 hover:text-gray-600">back to Home</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">STARTERS</h1>
+  </section>
+
+  <section id="breakfast-brunch" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+     
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe 1 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/76/7f/7e/767f7ef05bd9ff08bf64e6447cbf3b6f.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Indian-Chinese crispy snack">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Honey Chilli Potato </h3>
+          <p class="text-gray-700 mb-4">Indian-Chinese crispy snack .</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Honey Chilli Potato </div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+            Potatoes - 4 medium peeled and cut into strips
+            Salt - 2 tsp
+            Water - 4 cup to boil the potatoes
+            For the dry coating
+            Maida / Plain Flour - 1 tbsp
+            Rice Flour - 1 tbsp or corn flour
+            For the wet coating
+            Maida / Plain Flour - 1/4 cup
+            Rice Flour - 1/4 cup
+            Salt - to taste
+            Water - as required to make a thick batter
+            Oil - to fry the potatoes
+            For the sauce / gravy
+            Sesame Seeds - 1 tbsp
+            Oil - 2 tbsp
+            Garlic - 4-5 cloves finely chopped
+            Green Chili - 2 medium slit
+            Onion - 1 small sliced, optional
+            Capsicum - 1/2 cup sliced
+            Salt - 1/2 tsp to taste
+            Sugar - 1/2 tsp
+            Light Soya Sauce - 1 tsp
+            Red Chili sauce - 1 tbsp or Szechuan sauce
+            Tomato Ketchup - 1 tbsp
+            Black Pepper - 1/2 tsp optional
+            Water - 1/2 cup
+            Spring Onions Green - 1/2 cup finely chopped
+            Honey - 2-3 tbsp optional
+            For the slurry
+            Corn flour - 1 tsp
+            Water - 3 tbsp
+            For garnish
+            Spring Onions Green - finely chopped
+            Sesame Seeds -
+            
+             
+            
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/HToinNNWISU?si=EOxWFL8RrE73pcQg" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Honey Chilli Potato" data-description="
+            For the fried potatoes
+            Peel and cut the potatoes into long strips, similar to French fries. Once done soak them in water set aside.
+            Peel and cut the potatoes into long strips, similar to French fries. Once done soak them in water set aside.
+            In a pan place the cut potatoes only along with some salt. Pour water and over medium flame bring the potatoes to a boil.
+            In a pan place the cut potatoes only along with some salt. Pour water and over medium flame bring the potatoes to a boil.
+            Once the water starts to boil, lower the flame and cook the potatoes for 5 minutes, this step will allow the potatoes to soak all the salt and it will help us in making them extra crispy.
+            Once the water starts to boil, lower the flame and cook the potatoes for 5 minutes, this step will allow the potatoes to soak all the salt and it will help us in making them extra crispy.
+            Once the potatoes are ready, strain the potatoes using a strainer and transfer the potatoes into a large mixing bowl.
+            Once the potatoes are ready, strain the potatoes using a strainer and transfer the potatoes into a large mixing bowl.
+            For the dry coating                                                                                                            Add maida and rice flour. Mix everything until all the potatoes are well coated.
+            Add maida and rice flour. Mix everything until all the potatoes are well coated.
+            For the batter
+            In a large mixing combine the maida, rice flour and salt, mix and start adding little water at a time until you get a thick batter.
+            In a large mixing combine the maida, rice flour and salt, mix and start adding little water at a time until you get a thick batter.
+            Add the boiled potatoes and mix everything until all the potatoes are well coated.
+            Add the boiled potatoes and mix everything until all the potatoes are well coated.
+            For the first fry
+            In a large deep pan, heat the oil and fry the potatoes in batches over medium low flame, until they are light golden brown and crispy from outside and fluffy from inside. Once done, remove them on a plate.
+            In a large deep pan, heat the oil and fry the potatoes in batches over medium low flame, until they are light golden brown and crispy from outside and fluffy from inside. Once done, remove them on a plate.
+            In the meantime, in a pan add the sesame seeds and roast them over low flame. Once they start popping, turn off the flame and set aside.
+            In the meantime, in a pan add the sesame seeds and roast them over low flame. Once they start popping, turn off the flame and set aside.
+            For the second fry                                                                                                            Heat up the oil over high flame and then double fry the potatoes the second time. Flash fry the potatoes for 1 minute, this will ensure that the potatoes are very crispy from outside. Once done, remove them on a plate.
+            Heat up the oil over high flame and then double fry the potatoes the second time. Flash fry the potatoes for 1 minute, this will ensure that the potatoes are very crispy from outside. Once done, remove them on a plate.
+            For the sauce / gravy
+            Heat a wok over high heat; pour oil in the wok starting from the sides.
+            Heat a wok over high heat; pour oil in the wok starting from the sides.
+            Add garlic, green chilies, onions and raw sesame seeds; quickly stir fry for 1 minute.
+            Add garlic, green chilies, onions and raw sesame seeds; quickly stir fry for 1 minute.
+            Next add the onion and capsicum, cook for 1 minute over high heat.
+            Next add the onion and capsicum, cook for 1 minute over high heat.
+            Add salt, sugar, light soya sauce, red chili sauce, and cook for 1 minute over high heat.
+            Add salt, sugar, light soya sauce, red chili sauce, and cook for 1 minute over high heat.
+            After a minute add tomato ketchup, black pepper and then pour water and bring it to a boil.
+            After a minute add tomato ketchup, black pepper and then pour water and bring it to a boil.
+            For the slurry                                                                                                                    In a small bowl combine cornflour and water to make a slurry, and stir. Add one teaspoon at a time to the sauce and cook for 30 seconds.
+            In a small bowl combine cornflour and water to make a slurry, and stir. Add one teaspoon at a time to the sauce and cook for 30 seconds.
+            Once the sauce has thickened, turn off the flame add the spring onions green and honey. Stir everything; adjust the seasoning at this stage.
+            Once the sauce has thickened, turn off the flame add the spring onions green and honey. Stir everything; adjust the seasoning at this stage.
+            Finally add the fried potatoes, Give it a good mix and coat all the fried potatoes with the sauce. Garnish with spring onions green and sesame seeds.
+            Finally add the fried potatoes, Give it a good mix and coat all the fried potatoes with the sauce. Garnish with spring onions green and sesame seeds.
+            Serve
+            Serve the yummy Honey Chili Potato as a starter at the party and enjoy.
+            Serve the yummy Honey Chili Potato as a starter at the party and enjoy.
+            
+            
+            
+            
+            
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/564x/22/90/59/22905909c24dd0d1cfa8695de86b57cb.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt=" Indian appetizer made with chunks of paneer">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Tandoori Paneer Tikka</h3>
+          <p class="text-gray-700 mb-4"> Indian appetizer made with chunks of paneer.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Tandoori Paneer Tikka</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            Tomato - 1
+            Roasted Besan - 3 1/2 tbsp
+            Cashewnut Powder - 1 tbsp
+            Ginger Garlic Paste - 1/2 tbsp
+            salt - 1 1/4 tsp
+            Sugar - 1/4 tsp
+            Curry Leaves - 4
+            Nutmeg Powder - 1 Pinch
+            Kashmiri Red Chili Powder - 1/2 tbsp
+            Cumin Powder - 1/2 tsp
+            Garam Masala - 1/2 tsp
+            Black Pepper - 1/4 tsp
+            Lemon Juice - 1/4 tsp
+            Kasoori methi - 1/4 tsp (Broiled & Crushed)
+            Mustard Oil - 1 tsp
+            Charcoal - 1 (activated)
+            Paneer - 250 grams Cubed
+            Bell Peppers - 16 dices
+            Onions - 16 dices
+            ghee - 1/4 tsp for charcoal
+            
+            
+
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/n-8etlTdjOA?si=7317NaeJ9h06Ae4m class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Tandoori Paneer Tikka" data-description="
+            For Marinate : Grill a tomato over direct flame until completely charred. Then put in ice cold water, remove skin and blitz in a blender and add to a bowl.
+To the bowl, also add - roasted besan, cashewnut powder, ginger garlic paste, sugar, salt, curry leaves, kashmiri red chili powder, garam masala, cumin powder, kasoori methi, nutmeg, black pepper, lemon juice. Mix well.
+Heat up the mustard oil until it starts smoking and then add to the marinate. If the consistency is extremely thick, then a tbsp of yogurt can be added.
+Add the paneer cubes and coat the paneer gently in the marinate. Place a heatsafe small bowl inside the mixing bowl with the marinated paneer. In the heatsafe bowl, place one hot and activated charcoal and pour in the ghee. Quickly cover bowl and let the paneer marinate for 1 1/2 hours.
+Before Cooking : You can take out the paneer from the marinate and put in the dices of bell peppers and onions and marinate them.
+Cooking : Heat up a Grill Pan/Tawa in medium-high flame. Drizzle over a tsp of oil. Place the marinated onions and peppers and cook till you see the one side is done, after which turn and cook till its done and you see some dark spots. Take the peppers and onions out.
+Drizzle a tsp of oil in the pan, and place the marinated paneer. Cook the paneer in medium flame until done. About 30-45 seconds on each side, Serve Hot!
+            ">Procedure:</a>
+          </div>
+        </div>
+        <!-- Recipe 3 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/e5/6e/3f/e56e3fd8088f7c463fc7f0b61e9ca500.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="meat is juicy and tender on the inside with a crispy, crunchy coating on the outside..">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Chicken Lollipop</h3>
+          <p class="text-gray-700 mb-4">meat is juicy and tender on the inside with a crispy, crunchy coating on the outside..</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Chicken Lollipop</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            Chicken Lollipop - 6 Nos
+Soy Sauce - 1 1/2 Tsp 
+Chilli Sauce - 2 Tsp 
+Tomato Ketchup - 2 Tsp 
+Juice Of 1/2 Lemon 
+Ginger Garlic Paste - 1 Tsp 
+Salt - 1 Tsp 
+Pepper
+Egg - 1 No. 
+Corn Flour - 1 Tbsp 
+Maida - 1 Tbsp 
+
+To Make Sauce 
+Oil - 2 Tsp 
+Garlic Finely Chopped 
+Ginger Finely Chopped
+Red Chilli Chopped 
+Soy Sauce - 1 Tsp
+Chilli Sauce - 2 Tbsp 
+Tomato Ketchup - 2 Tbsp
+Water 
+Fried Chicken Lollipop
+Chopped Spring Onion
+
+             .</div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/DQyssKhXhdI?si=4Jf9ASKT20dJyzRD" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Chicken Lollipop" data-description="
+            1. To a bowl, add soya sauce, chilli sauce, tomato ketchup, lemon juice, ginger garlic paste, salt, crushed pepper, beaten egg, corn flour and maida. Mix everything together. 
+            2. Add the chicken lollipops and marinate them for an hour. 
+            3. Now add the chicken lollipops to oil and deep dry them until they are cooked. 
+            4. To a pan, add oil, garlic, ginger, fresh red chillies, saute for few mins. 
+            5. Now add soya sauce, chilli sauce and tomato ketchup and mix well. 
+            6. Add a little water to dilute the sauce. 
+            7. Now add the fried lollipops and toss them in the sauce until they are coated well. 
+            8. Finally add some chopped spring onions and turn off the stove!.">Procedure</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="recipe-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content"></div>
+  </div>
+
+  <script>
+    // JavaScript code for modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('recipe-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      const modalClose = modal.querySelector('.modal-close');
+
+      document.querySelectorAll('.procedure-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const recipe = this.getAttribute('data-recipe');
+          const description = this.getAttribute('data-description');
+          modalContent.innerHTML = `<h2>${recipe}</h2><p>${description}</p>`;
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      themeToggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMOOTHIES - Hungry Chef</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #050404;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+     /* Hero background image */
+    .hero-bg {
+      background-image: url('https://media4.giphy.com/media/dvIvdqxGRIA6yJnhwm/giphy.webp?cid=ecf05e47dwywudmf721q8b56edxgflfeyqii5e4q3904zbfw&ep=v1_gifs_search&rid=giphy.webp&ct=g');
+      background-size: cover;
+      background-position: center;
+      height: 80vh; /* Adjust this value as needed */
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f7f4f4;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Body blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Flexbox for links */
+    .recipe-links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recipe-links a {
+      flex: 1;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#backtohome" class="text-gray-800 hover:text-gray-600">back to Home</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">Smoothies</h1>
+  </section>
+
+  <section id="breakfast-brunch" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+     
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe 1 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/22/42/60/224260386d6b7f38c2f9696272772477.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="classic and authentic ">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2"> Mango smoothie</h3>
+          <p class="text-gray-700 mb-4">Classic and authentic.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Mango smoothie</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+            300 ml cold milk
+            1.5 tablespoons sugar (adjust to taste)
+            1/2 cup crushed ice
+            4 scoops vanilla ice cream
+            1/2 cup fresh mango, diced
+            
+            
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/gllA8QgRJIA?si=26VgDNITwNyw_VHR" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Mango smoothie" data-description="
+            Prepare the Mango: Peel and dice the fresh mango into small pieces. Make sure to remove the seed.
+
+            Blend Ingredients: In a blender, combine the cold milk, sugar, crushed ice, vanilla ice cream, and diced mango.
+            
+            Blend Until Smooth: Blend the ingredients until smooth and creamy. If the consistency is too thick, you can add a little more milk to adjust.
+            
+            Serve: Pour the mango smoothie into glasses. You can garnish with a slice of mango or a sprig of mint if desired.
+            
+            
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/50/c7/a3/50c7a383e1d617c241f3414a1d8acc43.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="The most amazing recipe with cream cheese frosting">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Cherry Raspberry Smoothie</h3>
+          <p class="text-gray-700 mb-4">The most amazing recipe with cream cheese frosting.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Cherry Raspberry Smoothie</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            1/2 cup of ice
+            1/2 cup of raspberries
+            1/4 cup of cherries (pitted)
+            1 banana
+            1 Tbsp of chia seeds soaked in 5 Tbsps of chia seeds
+            1 tsp of cashew butter
+            1/2 tsp of vanilla
+            1 tsp of grated ginger
+            1/2 cup of almond milk
+
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/8oArkiasyGY?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Cherry Raspberry Smoothie" data-description="
+            Blend the ingredients until smooth and creamy. If the consistency is too thick, you can add a little more milk to adjust.
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 3 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/11/99/5d/11995dca8bae27ad6ab8f16c4e11b4a0.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Some recipes are trends and some everyone's favourite.">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Blueberry Banana Smoothie</h3>
+          <p class="text-gray-700 mb-4">Some recipes are trends and some everyone's favourite.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Blueberry Banana Smoothie</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            1/2 cup frozen blueberries
+            1 small banana
+            1 heaped teaspoon of chia seeds
+            1 glass of milk (vegans may use coconut milk) 
+            1-2 tablespoons of honey (for vegans, you may use maple syrup to sweeten)
+            Once the above is added, blend this into a blender.  .</div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/HTbq6ZZr0M8?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Blueberry Banana Smoothie" data-description="
+
+         
+            In a bowl, add biscut. Chill crust in freezer for at least 10 minutes..">Procedure</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="recipe-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content"></div>
+  </div>
+
+  <script>
+    // JavaScript code for modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('recipe-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      const modalClose = modal.querySelector('.modal-close');
+
+      document.querySelectorAll('.procedure-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const recipe = this.getAttribute('data-recipe');
+          const description = this.getAttribute('data-description');
+          modalContent.innerHTML = `<h2>${recipe}</h2><p>${description}</p>`;
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      themeToggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+</body>
+</html>

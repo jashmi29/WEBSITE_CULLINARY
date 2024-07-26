@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOCKTAILS - Hungry Chef</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #050404;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+     /* Hero background image */
+    .hero-bg {
+      background-image: url('https://media1.tenor.com/m/b7YFItRnYToAAAAd/water-blue.gif');
+      background-size: cover;
+      background-position: center;
+      height: 80vh; /* Adjust this value as needed */
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f7f4f4;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Body blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Flexbox for links */
+    .recipe-links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recipe-links a {
+      flex: 1;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#backtohome" class="text-gray-800 hover:text-gray-600">back to Home</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">MOCKTAILS</h1>
+  </section>
+
+  <section id="breakfast-brunch" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-4xl font-bold text-gray-800 mb-12">Delicious Mocktails </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe 1 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/6c/ba/21/6cba2192a49ff3c28a3c7108ac63611b.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="classic Cuban cocktail, featuring the refreshing flavors ">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Blueberry Mojito</h3>
+          <p class="text-gray-700 mb-4">classic Cuban cocktail, featuring the refreshing flavors .</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Blueberry Mojito</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+            2 tbsp fine sugar or as required
+            1 tbsp lime juice freshly squeezed
+            75 grams blueberries 1/2 cup
+            6-7 mint leaves
+            1 cup soda water 240 ml
+            6-7 icecubes
+            For garnishing
+            A sprig of mint
+            few blueberries
+            lemon slices
+             
+            
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/kQa_BegRiiw?si=hCxugAeEliVIzz8s" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Blueberry Mojito" data-description="
+            In a glass, add the sugar, mint leaves, blueberries and lemon juice. Using a muddler, muddle the mixture until all the sugar has dissolved and the blueberries release its juice
+            Add the icecubes and soda water to the mixture and stir well
+            Top it up with a few blueberries, lemon slices and a sprig of mint.
+            
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/4e/ed/fa/4eedfaad80dd291fa9e082f9918472ec.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="An sweet, tangy flavors of fresh orange juice">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Orange Sunset Mocktail</h3>
+          <p class="text-gray-700 mb-4">An sweet, tangy flavors of fresh orange juice.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Orange Sunset Mocktail</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            1 tsp fresh mint leaves, chopped
+            2 tsp lemon juice, freshly squeezed
+            2-3 lemon slices (optional)
+            ¼ cup ,60 ml orange juice
+            6-8 ice cubes
+            ¼ cup ,60 ml sprite or sweetened club soda
+            ¼ cup 60 ml fresh watermelon juice
+            1 Orange slice & mint leaves, for garnishing
+            
+
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/guku3ZiZrBc?si=LOt3oi7dCJYtgv8e" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Orange Sunset Mocktail" data-description="
+            Firstly, in a tall glass add the chopped mint & lemon juice. Crush the mint in the lemon juice using a muddler, rolling pink, or the back of a large spoon. This brings out the minty flavor. Add a few lemon slices (optional)
+            Next, add the orange juice over the lemon juice mixture. Top this up with ice cubes. Add sufficient icecubes
+            Then, add the sprite over it. If no sprite, you may add any aerated translucent drink
+            Next, carefully pour the watermelon juice over the sprite. Do it slowly, to make sure the layers don't mix
+            Decorate the glass with a slice of orange & mint leaves.
+            ">Procedure:</a>
+          </div>
+        </div>
+        <!-- Recipe 3 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/29/44/31/2944311263d8aa4991325b4b53876909.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Steeping butterfly pea flowers in hot water to create a natural blue tea, which is then frozen into ice cubes.">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Citrus Magic blue mocktail</h3>
+          <p class="text-gray-700 mb-4">Steeping butterfly pea flowers in hot water to create a natural blue tea, which is then frozen into ice cubes.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Citrus Magic blue mocktai</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            15 butterfly pea flowers
+            2 cups boiling water
+            2 cups cold water
+            2-4 tablespoons freshly squeezed citrus
+             .</div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/vubKTw_0LtY?si=wFkWsvSAVapvb1-Y" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Cheese cake" data-description="
+
+            Place flowers and boiling water in a jug and seep for 30 minutes.
+            Drain flowers, and freeze blue water into ice cubes.
+            Freeze 2 cups regular water into ice cubes.
+            Once frozen, blend blue ice cubes in a high speed blender. Leave a few larger chunks in there for some texture.
+            Repeat with the regular ice.Place blue ice and white ice into separate containers and store in the freezer until you are ready to build the drinks.
+            Stack tall glasses half way with regular ice. Top with butterfly pea ice.
+            Add 1 tablespoon citrus of your choice into each glass. This measurement doesn’t have to be exact, you can add a little more if you like.
+            Add a little more butterfly pea ice on top, then top with your favourite sparkling beverage and stir.
+            Garnish and enjoy!.">Procedure</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="recipe-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content"></div>
+  </div>
+
+  <script>
+    // JavaScript code for modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('recipe-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      const modalClose = modal.querySelector('.modal-close');
+
+      document.querySelectorAll('.procedure-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const recipe = this.getAttribute('data-recipe');
+          const description = this.getAttribute('data-description');
+          modalContent.innerHTML = `<h2>${recipe}</h2><p>${description}</p>`;
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      themeToggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+</body>
+</html>

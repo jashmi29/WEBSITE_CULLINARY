@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snacks - Hungry Chef</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #050404;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    /* Hero background image */
+    .hero-bg {
+      background-image: url('https://i.pinimg.com/474x/30/2e/07/302e07a4b23077d8f7a5c5ba4368f04c.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f7f4f4;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-content {
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Body blur effect */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Flexbox for links */
+    .recipe-links {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .recipe-links a {
+      flex: 1;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#backtohome" class="text-gray-800 hover:text-gray-600">back to Home</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">Snack Recipes</h1>
+  </section>
+
+  <section id="breakfast-brunch" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-4xl font-bold text-gray-800 mb-12">Delicious Snacks Options</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe 1 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/564x/44/d6/b5/44d6b58bc6aab2881b19917c7ac50847.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Popular snack food in the coastal regions of Karnataka">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Goli baje</h3>
+          <p class="text-gray-700 mb-4">Popular snack food in the coastal regions of Karnataka</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Goli baje</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+            Produce: 1 tsp Ginger, 2 Green chilies,
+            Baking & spices: 1 cup All purpose flour/maida, 1/2 tsp Baking soda, 2 tbsp Rice flour, 1 Salt,
+            Oils & vinegars: 1 Oil,
+            Nuts & seeds: 2 tbsp Coconut pieces, Fresh,
+            Dairy: 1/2 cup Sour yogurt/dahi,
+            Frozen: 4 Curry, Leaves.
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/PuRjyQhCkJI?feature=shared" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Goli baje" data-description="
+              In a big mixing bowl sieve Maida/all-purpose flour, rice flour, salt, baking soda and mix it, then add yogurt/dahi and mix it well and make a thick batter, it should be thicker than idli-dosa batter.
+              Now add other ingredients like grated ginger, chopped green chilies, chopped coconut, curry leaves and mix or combine it well using a spoon or fingers.
+              Cover the prepared batter and keep aside near a warm place about 2-3 hours for fermentation.
+              Once the batter is ready, take a deep-frying pan, add oil, and heat enough for frying.
+              Now take the batter and drop small-small balls into the hot oil using fingers or use a small scoop and fry it in a small-small batch at a time till all sides are golden brown on medium flame.
+              Do the same with the remaining batter and make more bajji. Goli baje are ready to serve with coconut chutney as a teatime snack. Enjoy!
+            ">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/564x/b5/16/2a/b5162a59794a5b00c6780c3da9fed640.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Savory Indian patties made with a delicious filling of sweet corn kernels">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Crispy Corn Cutlet</h3>
+          <p class="text-gray-700 mb-4">Savory Indian patties made with a delicious filling of sweet corn kernels.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Crispy corn cutlet</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            1 cup sweet corn, 2 tbsp carrot, grated, 2 tbsp capsicum, chopped, ½ onion, finely chopped, 2 tbsp coriander, chopped, ¼ tsp turmeric, ½ tsp chilli powder, ½ tsp coriander powder, ½ tsp cumin powder, ½ tsp salt, 2 potatoes, boiled, ¼ cup bread crumbs, 2 tbsp corn flour, oil for frying.
+          </div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/oWySeIEhRS8?si=StSJfh0Gd_Jm63kc" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Crispy corn cutlet" data-description="
+              In a mixer jar, take 1 cup sweet corn, pulse, and grind to a coarse texture.
+              Transfer the coarse sweet corn into a large bowl.
+              Add 2 tbsp carrot, 2 tbsp capsicum, ½ onion, 2 tbsp coriander, and spices.
+              Mix well-forming dough.
+              Add 2 boiled potatoes, ¼ cup bread crumbs, and 2 tbsp corn flour.
+              Mix well-forming a soft dough.
+              Grease hands with oil and prepare small patties.
+              Fry in hot oil, keeping the flame on medium.
+              Stir occasionally, frying uniformly.
+              Fry until golden brown and crispy.
+              Drain off and serve crispy corn cutlet.
+            ">Procedure:</a>
+          </div>
+        </div>
+        <!-- Recipe 3 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/564x/55/85/f7/5585f72127114dee1fad024f0c425b16.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Fruit smoothie bowl with granola and coconut flakes">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Momos</h3>
+          <p class="text-gray-700 mb-4">A refreshing smoothie bowl with granola and coconut flakes.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe:Momos wrap</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            FOR MOMOS WRAP:
+            2 cup maida,
+            ½ tsp salt,
+            water, for kneading,
+            FOR MOMOS STUFFING:
+            2 tbsp oil,
+            2 chilli, finely chopped,
+            1 inch ginger, finely chopped,
+            3 clove garlic, finely chopped,
+            2 tbsp spring onion, chopped,
+            1 carrot, finely chopped,
+            3 cup cabbage, finely chopped,
+            ½ tsp pepper powder,
+            ½ tsp salt.</div>
+          <div class="recipe-links">
+            <a href="https://youtu.be/vVk32WacIfs?si=a_MlDMe41R-46anG" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Momos wra0" data-description="
+HOW TO KNEAD DOUGH FOR MOMOS WRAP:
+Firstly, in a large bowl take 2 cup maida, ½ tsp salt, and mix well.
+Add water as required and knead the dough.
+Knead for 5 minutes or until the dough turns smooth and tight.
+Cover the rest of the dough for 20 minutes.
+HOW TO MAKE MOMOS STUFFING:
+Firstly, in a large wok heat 2 tbsp oil.
+Add 2 chilli, 1 inch ginger, 3 cloves garlic, and 2 tbsp spring onion.
+Stir fry on high flame.
+Add 1 carrot and saute until the carrot softens slightly.
+Also add 3 cup cabbage, ½ tsp pepper powder, and ½ tsp salt.
+Stir fry on high flame until the cabbage softens slightly. make sure not to overcook the stuffing, as the cabbage will turn mushy and releases water.
+HOW TO SHAPE THE MOMOS:
+After the dough has rested for 20 minutes, knead the dough again.
+Pinch a ball sized dough and dust with maida.
+Roll to thin thickness.
+You can cut the wrap using a round bowl.
+Roll again to get the wrap as thin as possible.
+Stuff the stuffing in the centre and spread some water on the sides.
+Now start pleating or folding to have different shapes. water helps to seal the momos easily.
+Place the shaped momos into the steamer. make sure to brush the plate with oil to prevent it from sticking.
+Cover and steam for 10 minutes, or until the momos turn shiny.
+Finally, enjoy veg momos with spicy momos chutney..">Procedure</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="recipe-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content"></div>
+  </div>
+
+  <script>
+    // JavaScript code for modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('recipe-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      const modalClose = modal.querySelector('.modal-close');
+
+      document.querySelectorAll('.procedure-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const recipe = this.getAttribute('data-recipe');
+          const description = this.getAttribute('data-description');
+          modalContent.innerHTML = `<h2>${recipe}</h2><p>${description}</p>`;
+          modal.style.display = 'block';
+          document.body.classList.add('modal-open');
+        });
+      });
+
+      modalClose.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+      });
+
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      themeToggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+      });
+    });
+  </script>
+</body>
+</html>

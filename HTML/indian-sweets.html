@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breakfast & Brunch Recipes - Hungry Chef</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Dropdown menu styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffb6af;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+
+    /* Hero background image */
+    .hero-bg {
+      background-image: url('https://i.pinimg.com/564x/3c/cd/f1/3ccdf1d10719d43f7744e28f918a01f0.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Recipe card hover effect */
+    .recipe-card {
+      transition: transform 0.3s;
+    }
+
+    .recipe-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+
+    /* Blur effect for modal */
+    .modal-open {
+      filter: blur(5px);
+    }
+
+    /* Recipe card layout adjustments */
+    .recipe-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Procedure content styles */
+    .procedure-content {
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
+      border-radius: 10px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#home" class="text-gray-800 hover:text-gray-600">Home</a></li>
+          <li><a href="index.html#about" class="text-gray-800 hover:text-gray-600">About</a></li>
+          <li><a href="index.html#services" class="text-gray-800 hover:text-gray-600">Services</a></li>
+          <li><a href="index.html#contact" class="text-gray-800 hover:text-gray-600">Contact</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-bg h-64 flex items-center justify-center">
+    <h1 class="text-5xl text-black font-bold">Breakfast & Brunch Recipes</h1>
+  </section>
+
+  <section id="breakfast-brunch" class="recipes-section py-16">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-4xl font-bold text-gray-800 mb-12">Delicious Breakfast Options</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Recipe 1 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/8e/27/01/8e27019ebefaa11499371564b2847015.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Avocado toast with poached egg and microgreens">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Avocado Toast</h3>
+          <p class="text-gray-700 mb-4">Smashed avocado on toast with a poached egg and microgreens.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Avocado Toast</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients: </b></br>
+            2 Brown Bread Slices,
+            1 Ripe Avocado,
+            1/2 Lemon Juice,
+            1 Green Chilli (sliced),
+            Coriander Leaves (chopped),
+            Salt To Taste.</div>
+          <div class="recipe-links">
+            <a href="https://your-avocado-toast-video-url.com" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Avocado Toast" data-description="1. Toast the bread. 2. Mash the avocado and spread it on the toast. 3. Poach the egg and place it on top. 4. Garnish with microgreens.">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/63/6e/9c/636e9c82d5b38fd8db1a2d76742b7d12.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Pancakes with fresh berries and maple syrup">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Berry Pancakes</h3>
+          <p class="text-gray-700 mb-4">Fluffy pancakes topped with fresh berries and maple syrup.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Berry Pancakes</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            1½ cups all-purpose flour,
+             2 tablespoons sugar,
+             2 teaspoons baking powder
+             1 teaspoon baking soda,
+            1/2 teaspoon salt,
+            1½ cups milk or buttermilk,
+             2 large eggs,
+             1/4 cup melted butter,
+             1/2 cup fresh or frozen blueberries </div>
+          <div class="recipe-links">
+            <a href="https://your-berry-pancakes-video-url.com" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Berry Pancakes" data-description="1. Prepare the pancake batter. 2. Cook pancakes on a griddle. 3. Top with fresh berries and maple syrup.">Procedure</a>
+          </div>
+        </div>
+        <!-- Recipe 3 -->
+        <div class="recipe-card bg-white p-6 shadow-lg rounded-lg">
+          <img src="https://i.pinimg.com/474x/61/d0/52/61d0525e6197ac32cc724c651463418c.jpg" class="w-full h-48 object-cover rounded-md mb-4" alt="Fruit smoothie bowl with granola and coconut flakes">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Smoothie Bowl</h3>
+          <p class="text-gray-700 mb-4">A refreshing smoothie bowl with granola and coconut flakes.</p>
+          <div class="text-xl font-bold text-orange-500">Recipe: Smoothie Bowl</div>
+          <div class="text-gray-700 mb-2"><br><b>Ingredients:</b></br>
+            1 Banana,
+             1 cup Frozen Berries,
+             1/2 cup Greek Yogurt,
+            1/2 cup Almond Milk,
+             1 tablespoon Honey,
+             Granola and Coconut Flakes for topping</div>
+          <div class="recipe-links">
+            <a href="https://your-smoothie-bowl-video-url.com" class="text-blue-500 hover:text-blue-700" target="_blank">Watch Video</a>
+            <a href="#" class="text-blue-500 hover:text-blue-700 procedure-link" data-recipe="Smoothie Bowl" data-description="1. Blend the smoothie ingredients. 2. Pour into a bowl. 3. Top with granola and coconut flakes.">Procedure</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Section -->
+  <div id="recipe-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h2 id="modal-recipe-title" class="text-2xl font-bold mb-4">Recipe Title</h2>
+      <p id="modal-recipe-description">Recipe description will be displayed here.</p>
+    </div>
+  </div>
+
+  <script src="script1.js"></script>
+</body>
+</html>
