@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beverages - Hungry Chef</title>
+  <link rel="stylesheet" href="styles2.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth scrolling transition */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Full height for centering */
+    .full-height {
+      height: 100vh;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#home" class="text-gray-800 hover:text-gray-600">Home</a></li>
+          <li><a href="index.html#about" class="text-gray-800 hover:text-gray-600">About</a></li>
+          <li><a href="index.html#services" class="text-gray-800 hover:text-gray-600">Services</a></li>
+          <li><a href="index.html#contact" class="text-gray-800 hover:text-gray-600">Contact</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Centered Meal Planner Section -->
+  <div class="flex justify-center items-center full-height flex-col">
+    <div class="meal-planner bg-white p-6 rounded-lg shadow-md w-96 text-center">
+      <h2 class="text-xl font-bold mb-4">Personalized Meal Planner</h2>
+      
+      <label for="weight" class="block font-medium text-left">Enter Weight (kg):</label>
+      <input type="number" id="weight" class="input-field w-full border p-2 rounded-md mb-4" placeholder="e.g., 70">
+
+      <label for="height" class="block font-medium text-left">Enter Height (cm):</label>
+      <input type="number" id="height" class="input-field w-full border p-2 rounded-md mb-4" placeholder="e.g., 170">
+
+      <button onclick="generateMealPlan()" class="btn bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Get Meal Plan</button>
+
+      <div id="meal-plan-output" class="meal-output mt-4 p-4 bg-gray-100 rounded-md"></div>
+
+      <!-- Proceed Button (Hidden Initially) -->
+      <div id="proceed-box" class="mt-4 hidden">
+        <button onclick="proceedToNextPage()" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Proceed</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function generateMealPlan() {
+        let weight = document.getElementById("weight").value;
+        let height = document.getElementById("height").value;
+
+        if (!weight || !height) {
+            alert("Please enter both weight and height.");
+            return;
+        }
+
+        let heightMeters = height / 100;
+        let bmi = (weight / (heightMeters * heightMeters)).toFixed(1);
+        let mealPlan = "";
+
+        if (bmi < 18.5) {
+            mealPlan = "You're underweight. Eat more protein, healthy fats, and carbs.<br><b>Recommended:</b> Avocado toast, peanut butter smoothie, and rice bowls.";
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+            mealPlan = "You're at a healthy weight! Maintain a balanced diet.<br><b>Recommended:</b> Grilled chicken, quinoa salad, fruit smoothies.";
+        } else if (bmi >= 25 && bmi <= 29.9) {
+            mealPlan = "You're overweight. Focus on a low-carb diet.<br><b>Recommended:</b> Lean meat, steamed vegetables, and green tea.";
+        } else {
+            mealPlan = "You're obese. Stick to a calorie-deficit diet.<br><b>Recommended:</b> High-fiber salads, soups, and sugar-free beverages.";
+        }
+
+        document.getElementById("meal-plan-output").innerHTML = `<p><b>Your BMI:</b> ${bmi}</p><p>${mealPlan}</p>`;
+
+        // Show the Proceed button
+        document.getElementById("proceed-box").classList.remove("hidden");
+    }
+
+    function proceedToNextPage() {
+        window.location.href = "proceed.html";  // Change this to your actual page
+    }
+  </script>
+</body>
+</html>

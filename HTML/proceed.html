@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Specialist Meal Planner | Hungry Chef</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Hungry Chef</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html#home" class="text-gray-800 hover:text-gray-600">Home</a></li>
+          <li><a href="index.html#about" class="text-gray-800 hover:text-gray-600">About</a></li>
+          <li><a href="index.html#services" class="text-gray-800 hover:text-gray-600">Services</a></li>
+          <li><a href="index.html#contact" class="text-gray-800 hover:text-gray-600">Contact</a></li>
+          <li>
+            <button id="theme-toggle" class="text-gray-800 hover:text-gray-600">Toggle Theme</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-center text-3xl font-bold text-gray-800">Nutrition Specialist Meal Planner</h1>
+        
+        <div class="mt-6 max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">Select Your Preferences</h2>
+            <label class="block mb-2">Meal Type:</label>
+            <select id="mealType" class="w-full p-2 border rounded-md">
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+            </select>
+
+            <label class="block mt-4 mb-2">Caloric Goal:</label>
+            <input type="number" id="caloricGoal" placeholder="Enter calories" class="w-full p-2 border rounded-md">
+
+            <label class="block mt-4 mb-2">Dietary Restrictions:</label>
+            <input type="text" id="dietaryRestrictions" placeholder="E.g. Vegetarian, Gluten-Free" class="w-full p-2 border rounded-md">
+            
+            <button id="generatePlan" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-blue-600">Generate Meal Plan</button>
+        </div>
+        
+        <div id="mealPlan" class="mt-6 max-w-md mx-auto bg-white p-6 rounded-lg shadow-md hidden">
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">Generated Meal Plan</h2>
+            <p id="mealResult" class="text-gray-600"></p>
+        </div>
+
+        <!-- Proceed Button -->
+        <button id="proceed" class="w-full max-w-md mx-auto block bg-green-500 text-white py-3 px-6 rounded-md font-medium hover:bg-green-600 transition-all duration-200 mt-6 hidden">
+            Proceed
+        </button>
+    </div>
+
+    <script>
+        document.getElementById("generatePlan").addEventListener("click", function() {
+            var mealType = document.getElementById("mealType").value;
+            var caloricGoal = document.getElementById("caloricGoal").value;
+            var dietaryRestrictions = document.getElementById("dietaryRestrictions").value;
+            
+            if (!caloricGoal) {
+                alert("Please enter a caloric goal.");
+                return;
+            }
+
+            var mealPlanText = `Meal Type: ${mealType}\nCalories: ${caloricGoal}\nDietary Restrictions: ${dietaryRestrictions || "None"}`;
+            document.getElementById("mealResult").textContent = mealPlanText;
+            document.getElementById("mealPlan").classList.remove("hidden");
+            document.getElementById("proceed").classList.remove("hidden");
+        });
+
+        document.getElementById("proceed").addEventListener("click", function() {
+            window.location.href = "breakfast diet.html"; // Change this to your target page
+        });
+    </script>
+</body>
+</html>
