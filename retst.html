@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Management</title>
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            background: #f4f6f9;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #2c3e50;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            padding: 20px 0;
+            background: #34495e;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .sidebar a {
+            padding: 15px 20px;
+            color: #ccc;
+            text-decoration: none;
+            border-bottom: 1px solid #34495e;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background: #1abc9c;
+            color: #fff;
+        }
+
+        /* Main Content */
+        .main {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        /* Dashboard Header */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .dashboard-header button {
+            padding: 10px 20px;
+            background: #1abc9c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dashboard-header button:hover {
+            background: #16a085;
+        }
+
+        /* Tables Section */
+        .tables-section {
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .table {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        .table h3 {
+            margin: 0 0 10px;
+        }
+
+        .table p {
+            margin: 0 0 10px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item span {
+            font-size: 14px;
+        }
+
+        .menu-item button {
+            padding: 5px 10px;
+            background: #1abc9c;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .menu-item button:hover {
+            background: #16a085;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Restaurant Dashboard</h2>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Orders</a>
+        <a href="#">Menu</a>
+        <a href="#">Tables</a>
+        <a href="#">Billing</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <h1>Welcome, Manager</h1>
+        
+        </div>
+
+        <!-- Tables Section -->
+        <div class="tables-section">
+            <h2>Tables</h2>
+
+            <!-- Table Details -->
+            <!-- Repeat this block for each table -->
+            <div class="table">
+                <h3>Table 1</h3>
+                <p>Status: <span style="color: green;">Vacant</span></p>
+                <div class="menu-item">
+                    <span>Margherita Pizza - $12.99</span>
+                    <button>Add to Order</button>
+                </div>
+                <div class="menu-item">
+                    <span>Cheeseburger - $8.99</span>
+                    <button>Add to Order</button>
+                </div>
+            </div>
+
+            <div class="table">
+                <h3>Table 2</h3>
+                <p>Status: <span style="color: red;">Occupied</span></p>
+                <div class="menu-item">
+                    <span>Pasta Alfredo - $10.99</span>
+                    <button>Add to Order</button>
+                </div>
+                <div class="menu-item">
+                    <span>Grilled Chicken - $15.99</span>
+                    <button>Add to Order</button>
+                </div>
+            </div>
+
+            <!-- Add tables 3 to 10 in the same format -->
+            <!-- Example for Table 3 -->
+            <div class="table">
+                <h3>Table 3</h3>
+                <p>Status: <span style="color: red;">Occupied</span></p>
+                <div class="menu-item">
+                    <span>Sushi Set - $20.99</span>
+                    <button>Add to Order</button>
+                </div>
+                <div class="menu-item">
+                    <span>Fried Rice - $9.99</span>
+                    <button>Add to Order</button>
+                </div>
+            </div>
+
+            <!-- Add more tables following the same structure -->
+        </div>
+    </div>
+</body>
+</html>
+
+
+............
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    z-index: 1000;
+  }
+  
+  header .logo {
+    font-size: 1.8em;
+  }
+  
+  header nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+  }
+  
+  header nav ul li {
+    margin: 0 15px;
+    position: relative;
+  }
+  
+  header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+  }
+  
+  header nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    top: 30px;
+    left: 0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  header nav ul li:hover ul.dropdown {
+    display: block;
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    background: url('https://i.imgur.com/QWkSlXn.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5em;
+  }
+  
+  .hero-content .cta {
+    text-decoration: none;
+    background-color: #e67e22;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+  }
+  
+  /* Services Section */
+  .services-section {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .services-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .service {
+    width: 200px;
+    text-align: center;
+  }
+  
+  .service a {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    background-size: cover;
+    border-radius: 50%;
+  }
+  
+  /* Reservation Section */
+  .reservation-section {
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .reservation-form input,
+  .reservation-form button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1em;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  ...................
+  document.addEventListener("DOMContentLoaded", () => {
+    const reservationForm = document.getElementById("reservation-form");
+  
+    reservationForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Your table reservation request has been submitted. Thank you!");
+      reservationForm.reset();
+    });
+  });
+  
